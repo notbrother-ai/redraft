@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          for host in api.myfantasyleague.com www.myfantasyleague.com www44.myfantasyleague.com www48.myfantasyleague.com www54.myfantasyleague.com www57.myfantasyleague.com www61.myfantasyleague.com; do
-            echo "==== $host ===="
-            curl --max-time 6 -L -s -o /tmp/x -w 'HTTP=%{http_code} bytes=%{size_download} final=%{url_effective}\n' "https://$host/2005/draft_analysis"
-            head -c 200 /tmp/x; echo
+          for y in 2000 2001 2002 2003 2004 2005; do
+            echo "==== $y ===="
+            curl --max-time 12 -L -s "https://web.archive.org/cdx/search/cdx?url=football.myfantasyleague.com/$y/draft_analysis&output=json&filter=statuscode:200&filter=mimetype:text/html&from=$y&to=$((y+1))&limit=3" | head -c 1200
+            echo
           done
