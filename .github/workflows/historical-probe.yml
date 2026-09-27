@@ -1,17 +1,8 @@
 name: historical ADP probe
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          node <<'NODE'
-          for(const year of [2000,2001,2002,2003,2004,2005]){
-            const q=new URLSearchParams({url:`football.myfantasyleague.com/${year}/draft_analysis*`,output:'json',filter:'statuscode:200',collapse:'urlkey',fl:'timestamp,original,statuscode,digest'});
-            const u='https://web.archive.org/cdx/search/cdx?'+q;
-            try{const r=await fetch(u);const t=await r.text();console.log('YEAR',year,'STATUS',r.status,'BYTES',t.length);console.log(t.slice(0,20000))}catch(e){console.log('ERR',year,e.message)}
-          }
-          NODE
+      - run: echo "Historical probe is manual-only; production audit is authoritative."
