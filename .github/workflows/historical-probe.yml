@@ -1,0 +1,12 @@
+name: historical ADP probe
+on: workflow_dispatch
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          for y in 2000 2003 2005 2006 2007; do
+            echo "===== $y ====="
+            curl -L --max-time 15 -A 'Mozilla/5.0' -s "https://football.myfantasyleague.com/$y/draft_analysis" | head -c 5000
+            echo
+          done
