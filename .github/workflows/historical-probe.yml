@@ -11,4 +11,4 @@ jobs:
           u='https://web.archive.org/web/20050806005351id_/http://football.myfantasyleague.com:80/2005/draft_analysis'
           curl --max-time 25 -L -s "$u" -o /tmp/x
           echo bytes=$(wc -c </tmp/x)
-          grep -E '<tr|<td' /tmp/x | head -100 || true
+          head -c 7000 /tmp/x
