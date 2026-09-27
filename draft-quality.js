@@ -14,7 +14,21 @@
     });
     const drafted=(picks||[]).map(x=>x.p.id),duplicateDrafts=drafted.filter((id,i)=>drafted.indexOf(id)!==i);if(duplicateDrafts.length)issues.push(`Draft board duplicate player id ${duplicateDrafts[0]}`);
     const expected=(rosters||[]).length*total;if(drafted.length!==expected)issues.push(`Draft ended at ${drafted.length}/${expected} picks`);
-    return {ok:issues.length===0,issues,picks:drafted.length,expected};
+
+    // Player-pool conservation: every player must be in exactly one state — drafted or available.
+    // This catches the phantom-disappearance bug class directly.
+    const master=(typeof P!=='undefined'?P:[]);
+    const masterIds=master.map(p=>p.id);
+    const availableIds=(typeof avail!=='undefined'?avail:[]).map(p=>p.id);
+    const draftedSet=new Set(drafted), availableSet=new Set(availableIds);
+    const missing=master.filter(p=>!draftedSet.has(p.id)&&!availableSet.has(p.id));
+    const both=master.filter(p=>draftedSet.has(p.id)&&availableSet.has(p.id));
+    const unknown=[...drafted,...availableIds].filter(id=>!masterIds.includes(id));
+    if(missing.length)issues.push(`PHANTOM REMOVAL: ${missing.map(p=>p.name).join(', ')}`);
+    if(both.length)issues.push(`STATE ERROR drafted + available: ${both.map(p=>p.name).join(', ')}`);
+    if(unknown.length)issues.push(`Unknown player ids in draft state: ${[...new Set(unknown)].join(', ')}`);
+    if(master.length!==drafted.length+availableIds.length)issues.push(`Pool conservation failed: ${master.length} master ≠ ${drafted.length} drafted + ${availableIds.length} available`);
+    return {ok:issues.length===0,issues,picks:drafted.length,expected,master:master.length,available:availableIds.length,missing:missing.map(p=>p.name)};
   };
-  const oldFinish=window.finish;if(typeof oldFinish==='function')window.finish=function(){oldFinish();const audit=window.redraftAudit(),report=document.getElementById('report');if(report){const box=document.createElement('p');box.style.fontSize='11px';box.innerHTML=audit.ok?'<b>Draft integrity:</b> Passed roster, slot, length, and duplicate checks.':`<b>Draft integrity:</b> ${audit.issues.join(' · ')}`;report.appendChild(box)}};
+  const oldFinish=window.finish;if(typeof oldFinish==='function')window.finish=function(){oldFinish();const audit=window.redraftAudit(),report=document.getElementById('report');if(report){const box=document.createElement('p');box.style.fontSize='11px';box.innerHTML=audit.ok?`<b>Draft integrity:</b> Passed roster, slot, length, duplicate, and player-pool conservation checks (${audit.master} players accounted for).`:`<b>Draft integrity:</b> ${audit.issues.join(' · ')}`;report.appendChild(box)}};
 })();
