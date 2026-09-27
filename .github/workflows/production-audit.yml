@@ -1,0 +1,36 @@
+name: RE:DRAFT production audit
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for Vercel production deploy
+        run: sleep 45
+      - name: Validate every historical season
+        run: |
+          node <<'NODE'
+          const base='https://redraft-orpin.vercel.app';
+          const years=Array.from({length:27},(_,i)=>2000+i);
+          const required=['QB','RB','WR','TE'];
+          async function load(y){
+            const r=await fetch(`${base}/api/season?year=${y}&teams=12&scoring=standard`,{headers:{'cache-control':'no-cache'}});
+            let j={}; try{j=await r.json()}catch{}
+            if(!r.ok) throw Error(`${y}: HTTP ${r.status} ${j.detail||j.error||''}`);
+            const p=j.players||[], counts={}; p.forEach(x=>counts[x.pos]=(counts[x.pos]||0)+1);
+            const unique=new Set(p.map(x=>`${String(x.name).toLowerCase()}|${x.pos}`)).size===p.length;
+            const ordered=p.every((x,i)=>!i||Number(p[i-1].adp)<=Number(x.adp));
+            const enough=p.length>=180, core=required.every(x=>(counts[x]||0)>0);
+            if(!enough||!core||!unique||!ordered) throw Error(`${y}: pool=${p.length} positions=${JSON.stringify(counts)} unique=${unique} ordered=${ordered}`);
+            return {year:y,count:p.length,source:j.source,counts};
+          }
+          const results=[]; let failed=[];
+          for(const y of years){try{let x=await load(y);results.push(x);console.log('PASS',x)}catch(e){failed.push(String(e.message||e));console.error('FAIL',e.message)}}
+          console.log(`READY ${results.length}/27`);
+          if(failed.length){console.error(failed.join('\n'));process.exit(1)}
+          NODE
+      - name: Smoke-test app shell
+        run: |
+          curl --fail --retry 3 --retry-delay 3 https://redraft-orpin.vercel.app/play.html | grep -q 'RE:DRAFT'
