@@ -9,7 +9,7 @@
   function ensureUI(){
     const players=document.getElementById('players'); if(!players||document.getElementById('draftTools')) return;
     const tools=document.createElement('div');tools.id='draftTools';tools.className='draft-tools';
-    tools.innerHTML=['ALL','QB','RB','WR','TE','K','DST'].map(x=>`<button data-pos="${x}" class="${x==='ALL'?'active':''}">${x}</button>`).join('')+`<input id="playerSearch" placeholder="Search players…">`;
+    tools.innerHTML=['ALL','QB','RB','WR','TE','K','DST'].map(x=>`<button data-pos="${x}" class="${x==='ALL'?'active':''}">${x}</button>`).join('')+`<input id="playerSearch" placeholder="Search all undrafted players…">`;
     players.parentNode.insertBefore(tools,players);
     const focus=document.createElement('div');focus.id='focusCard';focus.className='focus-card';players.parentNode.insertBefore(focus,tools);
     tools.querySelectorAll('button').forEach(b=>b.onclick=()=>{filter=b.dataset.pos;tools.querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));renderEnhanced()});
@@ -17,14 +17,16 @@
   }
   function visible(){
     if(typeof avail==='undefined') return [];
-    return avail.slice().sort((a,b)=>a.adp-b.adp).filter(p=>(filter==='ALL'||p.pos===filter)&&(!search||p.name.toLowerCase().includes(search)||p.team.toLowerCase().includes(search))).slice(0,60);
+    // IMPORTANT: never truncate the undrafted pool. Earlier builds used slice(0,60),
+    // which made valid undrafted players look as if they had disappeared.
+    return avail.slice().sort((a,b)=>a.adp-b.adp).filter(p=>(filter==='ALL'||p.pos===filter)&&(!search||p.name.toLowerCase().includes(search)||p.team.toLowerCase().includes(search)));
   }
   function focusPlayer(p){focused=p;renderEnhanced()}
   function renderEnhanced(){
     ensureUI(); const list=visible(); if(!focused||!avail.some(x=>x.id===focused.id)) focused=list[0]||null;
     const mine=typeof teamAt==='function'&&teamAt(pick)===user;
     const card=document.getElementById('focusCard');
-    if(card&&focused){const ph=photo(focused);card.innerHTML=`<div class="focus-photo">${ph?`<img src="${ph}" onerror="this.parentNode.textContent='${initials(focused.name)}'">`:initials(focused.name)}</div><div><div class="focus-name">${focused.name}</div><div class="focus-meta">${focused.team} · ${focused.pos}${focused.pr||'—'} · Historical ADP ${focused.adp} · Position Rank ${focused.pos}${focused.pr||'—'}</div></div><div class="focus-actions"><button class="star" onclick="q(${focused.id})">${queue.some(x=>x.id===focused.id)?'★':'☆'}</button><button class="draft" ${mine?'':'disabled'} onclick="draft(${focused.id})">DRAFT</button></div>`}
+    if(card&&focused){const ph=photo(focused);card.innerHTML=`<div class="focus-photo">${ph?`<img src="${ph}" onerror="this.parentNode.textContent='${initials(focused.name)}'">`:initials(focused.name)}</div><div><div class="focus-name">${focused.name}</div><div class="focus-meta">${focused.team} · ${focused.pos}${focused.pr||'—'} · Historical ADP ${focused.adp} · Position Rank ${focused.pos}${focused.pr||'—'} · ${avail.length} players available</div></div><div class="focus-actions"><button class="star" onclick="q(${focused.id})">${queue.some(x=>x.id===focused.id)?'★':'☆'}</button><button class="draft" ${mine?'':'disabled'} onclick="draft(${focused.id})">DRAFT</button></div>`}
     const el=document.getElementById('players'); if(!el)return;
     el.innerHTML=list.map(p=>{const ph=photo(p);return`<div class="player" data-id="${p.id}"><div class="photo">${ph?`<img src="${ph}" onerror="this.parentNode.innerHTML='${initials(p.name)}'">`:initials(p.name)}</div><div><div class="nm">${p.name}</div><div class="meta">${p.team}</div></div><div><b>${p.pos}${p.pr||''}</b></div><div>ADP ${p.adp}</div><div>PR ${p.pr||'—'}</div><div><button class="star" onclick="event.stopPropagation();q(${p.id})">${queue.some(x=>x.id===p.id)?'★':'☆'}</button><button class="draft" ${mine?'':'disabled'} onclick="event.stopPropagation();draft(${p.id})">DRAFT</button></div></div>`}).join('');
     el.querySelectorAll('.player').forEach(row=>row.onclick=()=>focusPlayer(avail.find(p=>p.id===+row.dataset.id)));
