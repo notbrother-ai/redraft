@@ -8,11 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          for yy in 00 01 02 03 04 05 06 07; do
-            for f in "${yy}_rankings_print.htm" "${yy}_adp.htm"; do
-              u="https://www.fftoday.com/rankings/$f"
-              code=$(curl --max-time 8 -L -s -o /tmp/x -w '%{http_code}' "$u")
-              echo "$f HTTP=$code bytes=$(wc -c </tmp/x) rows=$(grep -c '<tr' /tmp/x || true)"
-              grep -E '<td' /tmp/x | head -2 || true
-            done
-          done
+          curl --max-time 10 -L -s 'https://www.fftoday.com/rankings/05_rankings_print.htm' -o /tmp/x
+          grep -E '<tr' /tmp/x | grep -E 'class="(sort1|sort2|tablebody|bodycontent)' | head -80 || true
+          grep -E 'Manning|Holmes|Tomlinson|Alexander|Owens|Gates' /tmp/x | head -40 || true
