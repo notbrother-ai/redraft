@@ -1,0 +1,10 @@
+// Resilient headshot layer: known ESPN IDs plus deterministic remote fallback.
+(()=>{
+ if(typeof P==='undefined'||typeof photo!=='function')return;
+ const ids={
+ 'David Johnson':'2508176',"Le'Veon Bell":'15825','Antonio Brown':'13934','Julio Jones':'13982','LeSean McCoy':'12514','Odell Beckham Jr.':'16733','Devonta Freeman':'16944','Melvin Gordon':'2576434','Mike Evans':'16737','A.J. Green':'13983','Ezekiel Elliott':'3051392','Michael Thomas':'2976316','Tom Brady':'2330','Christian McCaffrey':'3117251','DeAndre Hopkins':'15795','Travis Kelce':'15847','Kareem Hunt':'3059915','Dak Prescott':'2577417','Drew Brees':'2580','Aaron Rodgers':'8439','Rob Gronkowski':'13229','Russell Wilson':'14881','Todd Gurley':'2977644','Jordan Howard':'3060022','T.Y. Hilton':'14924','Demaryius Thomas':'13216','Matt Ryan':'11237','Cam Newton':'13994','Philip Rivers':'5529','Ben Roethlisberger':'5536','Matthew Stafford':'12483','Kirk Cousins':'14880','Carson Wentz':'2573079','Alvin Kamara':'3054850','Adam Thielen':'16460','Davante Adams':'16800','Jarvis Landry':'16790','Stefon Diggs':'2976212','Tyreek Hill':'3116406','Travis Kelce':'15847','Greg Olsen':'8419','Jason Witten':'4527'};
+ Object.assign(photoIds,ids);
+ window.playerPhotoSources=function(p){let id=photoIds[p.name];let out=[];if(id)out.push(`https://a.espncdn.com/i/headshots/nfl/players/full/${id}.png`);out.push(`https://ui-avatars.com/api/?name=${encodeURIComponent(p.name)}&size=256&background=182838&color=ffffff&bold=true&format=png`);return out};
+ window.photo=function(p){return playerPhotoSources(p)[0]};
+ document.addEventListener('error',e=>{let img=e.target;if(!(img instanceof HTMLImageElement))return;let row=img.closest('.player'),name=row?.querySelector('.nm')?.textContent;let p=name&&P.find(x=>x.name===name);if(!p){let hero=img.closest('.heroPlayer');if(hero){let hn=hero.querySelector('.heroName')?.textContent;p=P.find(x=>x.name.toUpperCase()===hn)}}if(!p)return;let sources=playerPhotoSources(p),idx=+(img.dataset.fallbackIndex||0)+1;if(idx<sources.length){img.dataset.fallbackIndex=idx;img.src=sources[idx]}},true);
+})();
