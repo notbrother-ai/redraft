@@ -8,12 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          for y in 2000 2003 2005 2006 2007; do
-            echo "===== MFL PLAYERS $y ====="
-            curl --max-time 10 -s "https://api.myfantasyleague.com/$y/export?TYPE=players&DETAILS=1&JSON=1" | head -c 800
-            echo
+          for y in 2005 2006 2007; do
             yy=${y:2:2}
-            echo "===== FFTODAY INDEX $y ====="
-            curl --max-time 10 -L -s "https://www.fftoday.com/rankings/${yy}_index.html" | grep -Eo 'href="[^"]+"' | head -30
-            echo
+            echo "===== FFTODAY LINKS $y ====="
+            curl --max-time 10 -L -s "https://www.fftoday.com/rankings/${yy}_index.html" | grep -Eoi 'href="[^"]*(adp|proj|rank|cheat)[^"]*"' | tail -50
           done
+          echo '===== 2006 ADP SAMPLE ====='
+          curl --max-time 10 -L -s 'https://www.fftoday.com/compiler/update/ADP.htm' | grep -E '<tr|<td' | head -80
