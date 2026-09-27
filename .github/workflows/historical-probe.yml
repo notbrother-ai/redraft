@@ -9,7 +9,11 @@ jobs:
     steps:
       - run: |
           for y in 2000 2003 2005 2006 2007; do
-            echo "===== $y ====="
-            curl -L --max-time 15 -A 'Mozilla/5.0' -s "https://football.myfantasyleague.com/$y/draft_analysis" | head -c 5000
+            echo "===== MFL PLAYERS $y ====="
+            curl --max-time 10 -s "https://api.myfantasyleague.com/$y/export?TYPE=players&DETAILS=1&JSON=1" | head -c 800
+            echo
+            yy=${y:2:2}
+            echo "===== FFTODAY INDEX $y ====="
+            curl --max-time 10 -L -s "https://www.fftoday.com/rankings/${yy}_index.html" | grep -Eo 'href="[^"]+"' | head -30
             echo
           done
