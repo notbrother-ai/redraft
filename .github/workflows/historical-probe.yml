@@ -9,8 +9,8 @@ jobs:
     steps:
       - run: |
           node <<'NODE'
-          const u='https://web.archive.org/web/20050806005351id_/http://football.myfantasyleague.com:80/2005/draft_analysis';
-          const h=await (await fetch(u)).text(), clean=s=>s.replace(/<[^>]*>/g,' ').replace(/&nbsp;/gi,' ').replace(/\s+/g,' ').trim();
-          let out=[];for(const m of h.matchAll(/<TR[^>]*>([\s\S]*?)<\/TR>/gi)){let c=[...m[1].matchAll(/<TD[^>]*>([\s\S]*?)<\/TD>/gi)].map(x=>clean(x[1]));if(c.length>=3)out.push(c)}
-          console.log(out.slice(-45).map(x=>JSON.stringify(x)).join('\n'));
+          for(const suffix of ['', '?COUNT=500', '?COUNT=500&POS=*&ROOKIES=0']){
+            const u='https://web.archive.org/web/20050806005351id_/http://football.myfantasyleague.com:80/2005/draft_analysis'+suffix;
+            const h=await (await fetch(u)).text(), rows=[...h.matchAll(/<TR[^>]*>([\s\S]*?)<\/TR>/gi)].filter(m=>/\d+\.\d+/.test(m[1]));console.log(suffix||'default','bytes',h.length,'playerRows',rows.length,h.match(/Displaying Top[^<]*/i)?.[0]);
+          }
           NODE
