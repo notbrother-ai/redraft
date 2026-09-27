@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          curl --max-time 10 -L -s 'https://www.fftoday.com/rankings/05_rankings_print.htm' -o /tmp/x
-          grep -E '<tr' /tmp/x | grep -E 'class="(sort1|sort2|tablebody|bodycontent)' | head -80 || true
-          grep -E 'Manning|Holmes|Tomlinson|Alexander|Owens|Gates' /tmp/x | head -40 || true
+          for host in api.myfantasyleague.com www.myfantasyleague.com www44.myfantasyleague.com www48.myfantasyleague.com www54.myfantasyleague.com www57.myfantasyleague.com www61.myfantasyleague.com; do
+            echo "==== $host ===="
+            curl --max-time 6 -L -s -o /tmp/x -w 'HTTP=%{http_code} bytes=%{size_download} final=%{url_effective}\n' "https://$host/2005/draft_analysis"
+            head -c 200 /tmp/x; echo
+          done
