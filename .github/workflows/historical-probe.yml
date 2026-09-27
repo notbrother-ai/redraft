@@ -8,10 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          for y in 2005 2006 2007; do
-            yy=${y:2:2}
-            echo "===== FFTODAY LINKS $y ====="
-            curl --max-time 10 -L -s "https://www.fftoday.com/rankings/${yy}_index.html" | grep -Eoi 'href="[^"]*(adp|proj|rank|cheat)[^"]*"' | tail -50
+          for yy in 00 01 02 03 04 05 06 07; do
+            for f in "${yy}_rankings_print.htm" "${yy}_adp.htm"; do
+              u="https://www.fftoday.com/rankings/$f"
+              code=$(curl --max-time 8 -L -s -o /tmp/x -w '%{http_code}' "$u")
+              echo "$f HTTP=$code bytes=$(wc -c </tmp/x) rows=$(grep -c '<tr' /tmp/x || true)"
+              grep -E '<td' /tmp/x | head -2 || true
+            done
           done
-          echo '===== 2006 ADP SAMPLE ====='
-          curl --max-time 10 -L -s 'https://www.fftoday.com/compiler/update/ADP.htm' | grep -E '<tr|<td' | head -80
