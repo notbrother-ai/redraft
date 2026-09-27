@@ -9,8 +9,11 @@ jobs:
     steps:
       - run: |
           node <<'NODE'
-          for(const suffix of ['', '?COUNT=500', '?COUNT=500&POS=*&ROOKIES=0']){
-            const u='https://web.archive.org/web/20050806005351id_/http://football.myfantasyleague.com:80/2005/draft_analysis'+suffix;
-            const h=await (await fetch(u)).text(), rows=[...h.matchAll(/<TR[^>]*>([\s\S]*?)<\/TR>/gi)].filter(m=>/\d+\.\d+/.test(m[1]));console.log(suffix||'default','bytes',h.length,'playerRows',rows.length,h.match(/Displaying Top[^<]*/i)?.[0]);
-          }
+          const base='https://web.archive.org/web/20050806005351id_/http://football.myfantasyleague.com:80/2005/draft_analysis';
+          const h=await (await fetch(base)).text();
+          console.log('FORMS');
+          for(const m of h.matchAll(/<form[\s\S]*?<\/form>/gi)) console.log(m[0].replace(/\s+/g,' ').slice(0,12000));
+          console.log('INPUTS', [...h.matchAll(/<(?:input|select)[^>]+>/gi)].map(x=>x[0]).join('\n'));
+          const tests=['?POS=QB','?POSITION=QB','?POSITION=RB','?POS=RB','?DISPLAY=100','?COUNT=100','?CUTOFF=0','?MINPCT=0','?PCT=0','?DRAFTS=ALL','?FCOUNT=12','?PERIOD=ALL'];
+          for(const suffix of tests){try{const x=await (await fetch(base+suffix)).text(),rows=[...x.matchAll(/<TR[^>]*>([\s\S]*?)<\/TR>/gi)].filter(m=>/\d+\.\d+/.test(m[1]));console.log('TEST',suffix,'bytes',x.length,'rows',rows.length,x.match(/Displaying Top[^<]*/i)?.[0])}catch(e){console.log('ERR',suffix,e.message)}}
           NODE
