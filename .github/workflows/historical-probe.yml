@@ -8,8 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          for y in 2000 2001 2002 2003 2004 2005; do
-            echo "==== $y ===="
-            curl --max-time 12 -L -s "https://web.archive.org/cdx/search/cdx?url=football.myfantasyleague.com/$y/draft_analysis&output=json&filter=statuscode:200&filter=mimetype:text/html&from=$y&to=$((y+1))&limit=3" | head -c 1200
-            echo
-          done
+          u='https://web.archive.org/web/20050806005351id_/http://football.myfantasyleague.com:80/2005/draft_analysis'
+          curl --max-time 25 -L -s "$u" -o /tmp/x
+          echo bytes=$(wc -c </tmp/x)
+          grep -E '<tr|<td' /tmp/x | head -100 || true
