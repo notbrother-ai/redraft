@@ -1,34 +1,13 @@
-// Vercel serverless endpoint: historical preseason ADP + player metadata.
-// Uses MyFantasyLeague's historical season exports so drafts are based on draft-market information, not hindsight results.
-module.exports = async function handler(req,res){
-  const year=Number(req.query.year);
-  if(!Number.isInteger(year)||year<2000||year>2026)return res.status(400).json({error:'year must be 2000-2026'});
-  const base=`https://api.myfantasyleague.com/${year}/export`;
-  const qs='JSON=1';
-  try{
-    const [ar,pr]=await Promise.all([
-      fetch(`${base}?TYPE=adp&PERIOD=ALL&FCOUNT=12&IS_PPR=-1&IS_KEEPER=N&IS_MOCK=-1&CUTOFF=1&DETAILS=&${qs}`,{headers:{'user-agent':'RE-DRAFT historical fantasy simulator'}}),
-      fetch(`${base}?TYPE=players&DETAILS=1&${qs}`,{headers:{'user-agent':'RE-DRAFT historical fantasy simulator'}})
-    ]);
-    if(!ar.ok||!pr.ok)throw new Error(`MFL ${ar.status}/${pr.status}`);
-    const [aj,pj]=await Promise.all([ar.json(),pr.json()]);
-    const adp=(aj.adp&&aj.adp.player)||[];
-    const players=(pj.players&&pj.players.player)||[];
-    const byId=new Map(players.map(p=>[String(p.id),p]));
-    const clean=[];
-    for(const a of adp){
-      const m=byId.get(String(a.id)); if(!m)continue;
-      let pos=String(m.position||'').toUpperCase();
-      if(pos==='PK')pos='K'; if(pos==='DEF'||pos==='DF'||pos==='D/ST')pos='DST';
-      if(!['QB','RB','WR','TE','K','DST'].includes(pos))continue;
-      const avg=Number(a.averagePick||a.averagepick||a.adp); if(!Number.isFinite(avg)||avg<=0)continue;
-      clean.push({name:m.name||m.fullName||`Player ${a.id}`,pos,team:m.team||'FA',adp:+avg.toFixed(1),mflId:String(a.id),espnId:m.espn_id||m.espnId||null});
-    }
-    clean.sort((a,b)=>a.adp-b.adp);
-    const seen=new Set(); const unique=clean.filter(p=>{const k=p.name+'|'+p.pos;if(seen.has(k))return false;seen.add(k);return true});
-    const count={}; unique.forEach(p=>{count[p.pos]=(count[p.pos]||0)+1;p.pr=count[p.pos]});
-    if(unique.length<40)throw new Error(`Only ${unique.length} usable players returned`);
-    res.setHeader('Cache-Control','public, s-maxage=86400, stale-while-revalidate=604800');
-    return res.status(200).json({year,source:'MyFantasyLeague historical ADP',players:unique.slice(0,320)});
-  }catch(e){return res.status(502).json({error:'Historical season data unavailable',year,detail:String(e.message||e)});}
+// RE:DRAFT historical season API. Uses preseason draft-market data only (no hindsight stats).
+// Primary: MyFantasyLeague historical ADP + player metadata. Fallback: FantasyFootballCalculator (2007+).
+module.exports=async function handler(req,res){
+ const year=Number(req.query.year),scoring=String(req.query.scoring||'standard').toLowerCase(),teams=Math.min(16,Math.max(8,Number(req.query.teams)||12));
+ if(!Number.isInteger(year)||year<2000||year>2026)return res.status(400).json({error:'year must be 2000-2026'});
+ const normalizePos=x=>{x=String(x||'').toUpperCase();if(x==='PK')return'K';if(['DEF','DF','D/ST'].includes(x))return'DST';return x};
+ const finalize=(rows,source)=>{const ok=rows.filter(p=>p.name&&['QB','RB','WR','TE','K','DST'].includes(p.pos)&&Number.isFinite(p.adp)&&p.adp>0).sort((a,b)=>a.adp-b.adp),seen=new Set(),out=[];for(const p of ok){const k=p.name+'|'+p.pos;if(seen.has(k))continue;seen.add(k);out.push(p)}const count={};out.forEach((p,i)=>{p.id=i;count[p.pos]=(count[p.pos]||0)+1;p.pr=count[p.pos]});return{year,source,players:out.slice(0,360)}};
+ async function mfl(){const base=`https://api.myfantasyleague.com/${year}/export`,hdr={'user-agent':'RE-DRAFT historical fantasy simulator'};const [ar,pr]=await Promise.all([fetch(`${base}?TYPE=adp&PERIOD=ALL&FCOUNT=${teams}&IS_PPR=${scoring==='ppr'?1:scoring==='standard'?0:-1}&IS_KEEPER=N&IS_MOCK=-1&CUTOFF=1&DETAILS=&JSON=1`,{headers:hdr}),fetch(`${base}?TYPE=players&DETAILS=1&JSON=1`,{headers:hdr})]);if(!ar.ok||!pr.ok)throw Error(`MFL ${ar.status}/${pr.status}`);const [aj,pj]=await Promise.all([ar.json(),pr.json()]),adp=aj.adp?.player||[],players=pj.players?.player||[],byId=new Map(players.map(p=>[String(p.id),p]));return finalize(adp.map(a=>{const m=byId.get(String(a.id));if(!m)return null;return{name:m.name||m.fullName,pos:normalizePos(m.position),team:m.team||'FA',adp:Number(a.averagePick||a.averagepick||a.adp),mflId:String(a.id),espnId:m.espn_id||m.espnId||null}}).filter(Boolean),'MyFantasyLeague historical ADP')}
+ async function ffc(){if(year<2007)throw Error('FFC begins in 2007');const fmt=scoring==='ppr'?'ppr':'standard',r=await fetch(`https://fantasyfootballcalculator.com/api/v1/adp/${fmt}?teams=${teams}&year=${year}`,{headers:{'user-agent':'RE-DRAFT historical fantasy simulator'}});if(!r.ok)throw Error(`FFC ${r.status}`);const j=await r.json(),rows=(j.players||j.adp||[]).map(x=>({name:x.name||x.player_name||x.playerName,pos:normalizePos(x.position||x.pos),team:x.team||x.team_abbr||'FA',adp:Number(x.adp||x.average_pick||x.averagePick),ffcId:x.id||null}));return finalize(rows,'Fantasy Football Calculator historical ADP')}
+ let data,errors=[];for(const fn of [mfl,ffc]){try{data=await fn();if(data.players.length>=40)break;errors.push(`${data.source}: only ${data.players.length}`);data=null}catch(e){errors.push(String(e.message||e))}}
+ if(!data)return res.status(502).json({error:'Historical season data unavailable',year,detail:errors.join(' | ')});
+ res.setHeader('Cache-Control','public, s-maxage=86400, stale-while-revalidate=604800');res.setHeader('Access-Control-Allow-Origin','*');return res.status(200).json({...data,teams,scoring});
 };
