@@ -1,52 +1,11 @@
-// RE:DRAFT gameplay realism layer — roster-aware 2017 MVP
-(() => {
-  const counts=(t,pos)=>rosters[t].filter(p=>p.pos===pos).length;
-  const round=()=>Math.floor(pick/n)+1;
-  const cfg=pos=>window.REDRAFT_ROSTER?(+window.REDRAFT_ROSTER[pos]||0):({QB:1,RB:2,WR:2,TE:1,FLEX:1,K:1,DST:1,BENCH:6}[pos]||0);
-  const rounds=()=>window.REDRAFT_ROUNDS||15;
-  const starterNeed=pos=>cfg(pos);
-  function target(pos,r){
-    const total=rounds(),pct=r/Math.max(1,total),start=starterNeed(pos),flex=['RB','WR','TE'].includes(pos)?cfg('FLEX'):0;
-    if(pos==='K'||pos==='DST')return pct<.78?0:start;
-    if(pos==='QB')return pct<.34?0:start;
-    if(pos==='TE')return pct<.28?0:start;
-    if(pos==='RB'||pos==='WR'){if(pct<.35)return Math.min(start,2);if(pct<.68)return start+Math.ceil(flex/2);return start+flex+Math.ceil(cfg('BENCH')*.28)}
-    return start;
-  }
-  function maxAt(pos){if(window.REDRAFT_MAX_NEED)return window.REDRAFT_MAX_NEED(pos);return({QB:2,RB:6,WR:6,TE:2,K:1,DST:1}[pos]||6)}
-  function scarcity(pos){const a=avail.filter(p=>p.pos===pos).sort((a,b)=>a.adp-b.adp);if(a.length<2)return 0;return Math.max(0,7-(a[1].adp-a[0].adp))}
-  function missingStarter(t,pos){return counts(t,pos)<starterNeed(pos)}
-  function flexFilled(t){const eligible=counts(t,'RB')+counts(t,'WR')+counts(t,'TE');return eligible>=cfg('RB')+cfg('WR')+cfg('TE')+cfg('FLEX')}
-  function mustFill(t){
-    const total=rounds(),remaining=total-rosters[t].length;
-    const missing=[];
-    ['QB','RB','WR','TE','K','DST'].forEach(pos=>{for(let i=counts(t,pos);i<starterNeed(pos);i++)missing.push(pos)});
-    if(!flexFilled(t))missing.push('FLEX');
-    return remaining<=missing.length?missing:null;
-  }
-  window.cpu=function(t){
-    const r=round(),overall=pick+1,total=rounds(),late=r>=Math.max(1,total-2),forced=mustFill(t);
-    let candidates=avail.filter(p=>counts(t,p.pos)<maxAt(p.pos));
-    if(forced&&forced.length){
-      candidates=candidates.filter(p=>forced.includes(p.pos)||(forced.includes('FLEX')&&['RB','WR','TE'].includes(p.pos)));
-    }
-    let pool=candidates.slice().sort((a,b)=>a.adp-b.adp).slice(0,Math.min(r<5?30:60,candidates.length));
-    if(!pool.length)pool=avail.slice().sort((a,b)=>a.adp-b.adp);
-    let scored=pool.map(p=>{
-      const have=counts(t,p.pos),want=target(p.pos,r);if(have>=maxAt(p.pos))return{p,s:9999};
-      if(!forced&&(p.pos==='K'||p.pos==='DST')&&r<Math.max(2,total-3))return{p,s:9999};
-      if(!forced&&p.pos==='QB'&&have>=starterNeed('QB')&&r<Math.ceil(total*.72))return{p,s:9999};
-      if(!forced&&p.pos==='TE'&&have>=starterNeed('TE')&&r<Math.ceil(total*.58))return{p,s:9999};
-      const delta=p.adp-overall;let market=Math.abs(delta)*.58;if(delta>18)market+=(delta-18)*.48;
-      let need=have<want?-7:have===want?0:4;if((p.pos==='RB'||p.pos==='WR')&&r<=Math.ceil(total*.55)&&have<Math.max(2,starterNeed(p.pos)))need-=3;
-      let value=delta<-10?-4:delta<-5?-2:0,scarce=-Math.min(3,scarcity(p.pos)*.3),completion=0;
-      if(late&&missingStarter(t,p.pos))completion-=22;
-      if(r===total&&missingStarter(t,'K')&&p.pos==='K')completion-=40;
-      if(r>=total-1&&missingStarter(t,'DST')&&p.pos==='DST')completion-=36;
-      if(forced&&(forced.includes(p.pos)||(forced.includes('FLEX')&&['RB','WR','TE'].includes(p.pos))))completion-=80;
-      let personality=((t*17+p.id*7)%13-6)*.45,noise=(Math.random()-.5)*(r<4?6:r<Math.ceil(total*.6)?11:17);
-      return{p,s:market+need+value+scarce+completion+personality+noise};
-    }).sort((a,b)=>a.s-b.s);
-    take((scored.find(x=>x.s<9999)||{}).p||pool[0]||avail[0],t);
-  };
+// RE:DRAFT CPU draft engine — market-aware, roster-aware, era-agnostic.
+(()=>{
+ const count=(t,pos)=>rosters[t].filter(p=>p.pos===pos).length,round=()=>Math.floor(pick/n)+1;
+ const cfg=pos=>window.REDRAFT_ROSTER?(+window.REDRAFT_ROSTER[pos]||0):({QB:1,RB:2,WR:2,TE:1,FLEX:1,K:1,DST:1,BENCH:6}[pos]||0),rounds=()=>window.REDRAFT_ROUNDS||15;
+ const maxAt=pos=>window.REDRAFT_MAX_NEED?window.REDRAFT_MAX_NEED(pos):({QB:2,RB:7,WR:7,TE:3,K:1,DST:1}[pos]||6);
+ function flexNeed(t){return Math.max(0,cfg('RB')+cfg('WR')+cfg('TE')+cfg('FLEX')-(count(t,'RB')+count(t,'WR')+count(t,'TE')))}
+ function missing(t){let m=[];['QB','RB','WR','TE','K','DST'].forEach(pos=>{for(let i=count(t,pos);i<cfg(pos);i++)m.push(pos)});for(let i=0;i<flexNeed(t);i++)m.push('FLEX');return m}
+ function replacement(pos){let a=avail.filter(p=>p.pos===pos).sort((a,b)=>a.adp-b.adp);return a.length>1?Math.max(0,Math.min(20,a[Math.min(5,a.length-1)].adp-a[0].adp)):0}
+ function needScore(t,p,r){let have=count(t,p.pos),total=rounds(),starter=cfg(p.pos),score=0;if(have<starter)score-=8;if(['RB','WR','TE'].includes(p.pos)&&flexNeed(t)>0)score-=3;if((p.pos==='RB'||p.pos==='WR')&&r<=Math.ceil(total*.55)&&have<2)score-=3;if(p.pos==='QB'&&have>=1)score+=r<Math.ceil(total*.72)?18:5;if(p.pos==='TE'&&have>=1)score+=r<Math.ceil(total*.62)?13:4;if((p.pos==='K'||p.pos==='DST')&&r<total-2)score+=45;if(have>=maxAt(p.pos))score+=999;return score}
+ window.cpu=function(t){let r=round(),overall=pick+1,total=rounds(),remain=total-rosters[t].length,miss=missing(t),forced=remain<=miss.length;let candidates=avail.filter(p=>count(t,p.pos)<maxAt(p.pos));if(forced)candidates=candidates.filter(p=>miss.includes(p.pos)||(miss.includes('FLEX')&&['RB','WR','TE'].includes(p.pos)));if(!candidates.length)candidates=avail.slice();let pool=candidates.slice().sort((a,b)=>a.adp-b.adp).slice(0,Math.min(candidates.length,r<=4?36:r<=9?60:90));let scored=pool.map(p=>{let delta=p.adp-overall;let market=Math.abs(delta)*.72;if(delta>12)market+=(delta-12)*.7;let reach=delta>25?(delta-25)*1.3:0;let value=delta<0?Math.max(-7,delta*.22):0;let need=needScore(t,p,r);let scarcity=-Math.min(5,replacement(p.pos)*.18);let finish=0;if(forced&&(miss.includes(p.pos)||(miss.includes('FLEX')&&['RB','WR','TE'].includes(p.pos))))finish-=80;if(r>=total-1&&miss.includes('K')&&p.pos==='K')finish-=55;if(r>=total-1&&miss.includes('DST')&&p.pos==='DST')finish-=55;let personality=((t*31+p.id*11)%17-8)*.22;let noise=(Math.random()-.5)*(r<=3?2.5:r<=8?5:8);return{p,s:market+reach+value+need+scarcity+finish+personality+noise}}).sort((a,b)=>a.s-b.s);take(scored[0]?.p||pool[0]||avail[0],t)};
 })();
