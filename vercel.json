@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "node scripts/check.cjs",
+  "outputDirectory": ".",
+  "functions": {
+    "api/season.js": {"includeFiles": "data/seasons/**"}
+  }
+}
