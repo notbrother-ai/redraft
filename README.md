@@ -20,3 +20,7 @@ The permanent web codebase has been created. The first production target is a po
 ## Product rule
 
 The selected season determines the interface. There is no cosmetic theme selector: a 2017 draft should feel like a 2017 fantasy draft room, while modern seasons should use a modern interface.
+
+## Playability development branch
+
+See [QA.md](QA.md) for reproduced failures, browser gameplay evidence and remaining historical-data limitations. Run `npm run build`, `npm test`, and `npm run test:browser` for checks. The preview uses the original static app and API, with versioned season snapshots; no framework replacement is involved. The 2000–2005 ranking proxy is provisional and must be replaced by verified preseason data before historical-accuracy sign-off.

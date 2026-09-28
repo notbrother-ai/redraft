@@ -1,0 +1,73 @@
+{
+  "testedAt": "2026-09-28T02:13:20.730Z",
+  "url": "http://127.0.0.1:33671",
+  "seasons": [
+    {
+      "year": 2003,
+      "teams": 12,
+      "slot": 1,
+      "userPicks": 15,
+      "picks": 180,
+      "pool": 324,
+      "seconds": 25,
+      "idleMutations": 0,
+      "errors": []
+    },
+    {
+      "year": 2008,
+      "teams": 12,
+      "slot": 12,
+      "userPicks": 15,
+      "picks": 180,
+      "pool": 306,
+      "seconds": 23,
+      "idleMutations": 0,
+      "errors": []
+    },
+    {
+      "year": 2010,
+      "teams": 10,
+      "slot": 10,
+      "userPicks": 15,
+      "picks": 150,
+      "pool": 308,
+      "seconds": 20,
+      "idleMutations": 0,
+      "errors": []
+    },
+    {
+      "year": 2017,
+      "teams": 12,
+      "slot": 6,
+      "userPicks": 15,
+      "picks": 180,
+      "pool": 421,
+      "seconds": 28,
+      "idleMutations": 0,
+      "errors": []
+    },
+    {
+      "year": 2024,
+      "teams": 12,
+      "slot": 12,
+      "userPicks": 15,
+      "picks": 180,
+      "pool": 397,
+      "seconds": 26,
+      "idleMutations": 0,
+      "errors": []
+    },
+    {
+      "year": 2026,
+      "teams": 12,
+      "slot": 1,
+      "userPicks": 15,
+      "picks": 180,
+      "pool": 318,
+      "seconds": 26,
+      "idleMutations": 0,
+      "errors": []
+    }
+  ],
+  "all27Seasons": true
+}
