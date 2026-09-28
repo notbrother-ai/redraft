@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "node tests/cpu.cjs",
+    "test": "node tests/cpu.cjs && node tests/cpu-quality.cjs && node tests/portraits.cjs",
     "test:browser": "node tests/gameplay.cjs",
     "build": "node scripts/check.cjs"
   },
-  "devDependencies": {"playwright": "1.62.1"}
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
 }

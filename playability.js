@@ -10,9 +10,9 @@
     window.REDRAFT_RENDER_ROOM?.();
   };
   window.renderBoard=function(){
-    const cells=Array.from({length:n},(_,t)=>`<div class="pick" onclick="viewTeam(${t});REDRAFT_RENDER_ROOM()"><b>${t===user?'YOUR TEAM':'TEAM '+(t+1)}</b></div>`);
-    for(let r=0;r<rounds();r++)for(let t=0;t<n;t++){const i=r*n+(r%2?n-1-t:t),pk=picks[i];cells.push(`<div class="pick ${t===user?'mine':''}" onclick="viewTeam(${t});REDRAFT_RENDER_ROOM()"><b>${r+1}.${String(i%n+1).padStart(2,'0')}</b><br>${pk?pk.p.name:'—'}</div>`)}
-    $('board').style.gridTemplateColumns=`repeat(${n},1fr)`;$('board').innerHTML=cells.join('');
+    const cells=Array.from({length:n},(_,t)=>`<div class="pick boardTeam" onclick="viewTeam(${t});REDRAFT_RENDER_ROOM()"><b>${t===user?'YOUR TEAM':'TEAM '+(t+1)}</b></div>`);
+    for(let r=0;r<rounds();r++)for(let t=0;t<n;t++){const i=r*n+(r%2?n-1-t:t),pk=picks[i];cells.push(`<div class="pick ${t===user?'mine':''} ${i===pick?'on-clock-cell':''}" data-overall="${i+1}" onclick="viewTeam(${t});REDRAFT_RENDER_ROOM()"><b>${r+1}.${String(i%n+1).padStart(2,'0')}</b><br>${pk?`<strong>${pk.p.name}</strong><span class="boardMeta">${pk.p.pos} · ${pk.p.team}</span>`:i===pick?'ON THE CLOCK':'—'}</div>`)}
+    $('board').style.gridTemplateColumns=`repeat(${n},minmax(74px,1fr))`;$('board').innerHTML=cells.join('');
   };
   window.advance=function(){
     if(!active)return;
@@ -63,9 +63,34 @@
       .finish #report>div{background:#0c2131!important;color:#dce7f2!important;border-color:#345168!important}.finish #report>div>div{color:inherit!important}
       body[data-era=classic].rd-live .room,body[data-era=web2].rd-live .room{background:#091722!important}
       #boardToggle{width:100%;background:#102c21;color:#74efa9;border:1px solid #365847;margin-top:12px}.room.show-board main{overflow:auto}.room.show-board .scroll,.room.show-board .board{display:grid!important}.room.show-board .players{max-height:300px!important}
+      .fallback{position:relative;display:grid;place-items:center;width:100%;height:100%;overflow:hidden}.fallback svg{position:absolute;width:90%;height:100%;fill:#355066;opacity:.6}.fallback b{position:relative;z-index:1;font:800 12px Arial;color:#e6bc58}.heroPhoto .fallback b{font:italic 900 46px Arial}.leftTitle{font-size:16px!important;gap:6px}.leftTitle span{white-space:nowrap}
+      .side{display:flex!important;flex-direction:column;overflow:hidden!important}.side>.head,.side>#roster{display:none!important}.leftTitle{flex:none;display:flex;justify-content:space-between;align-items:center}.leftTitle span{font:700 10px Arial;color:#8fa8ba}
+      #recentPicks{flex:1;min-height:0;overflow-y:auto;scrollbar-gutter:stable}.feedPick{display:grid;grid-template-columns:34px 1fr;width:100%;gap:6px;min-height:63px;text-align:left;background:#0a1824;color:#dfe8ef;border:0;border-bottom:1px solid #22394a;border-radius:0!important;padding:9px 7px;text-transform:none;letter-spacing:0;font-family:Arial!important}.feedPick:hover{background:#163148}.feedPick.my-pick{border-left:3px solid #55e696;background:#10251f}.feedPick b{font-size:11px;line-height:1.4}.feedPick small{display:block;font:10px/1.6 Arial;color:#91a8ba}.feedNumber{color:#e7b434;font:800 15px Arial}.feedNumber small{font-size:9px}.feedEmpty{padding:20px 12px;color:#91a8ba;font:12px/1.6 Arial}.side>.queue{flex:none;max-height:100px;overflow:auto;border-top:1px solid #365063}
+      .roomTabs{height:42px;display:flex;align-items:center;gap:4px;padding:0 10px;border-bottom:1px solid #2a4355;background:#0a1824}.roomTabs button{height:42px;border:0;border-bottom:3px solid transparent;background:transparent;color:#8299aa;padding:0 15px;font:800 11px Arial!important;letter-spacing:.4px}.roomTabs button.selected{color:#68eda2;border-bottom-color:#68eda2}.roomTabs button:focus-visible{outline:2px solid #e8b42d;outline-offset:-4px}#tabStatus{margin-left:auto;color:#a0b4c3;font:10px Arial}
+      .players{max-height:calc(100vh - 415px)!important}.board-view #heroPlayer,.board-view .filters,.board-view .playerTableHead,.board-view #players{display:none!important}.room main.board-view>.scroll{display:block!important;height:calc(100vh - 143px);overflow:auto!important}.board-view #board{display:grid!important;min-width:0;align-content:start}.board-view .pick{height:78px!important;min-width:74px;padding:6px!important;font:10px/1.4 Arial!important;cursor:pointer}.board-view .pick strong{display:block;font-size:11px;color:#e7f0f7;margin:4px 0}.boardMeta{font-size:9px;color:#92a9bb}.board-view .boardTeam{height:37px!important;position:sticky;top:0;background:#162c3e!important;z-index:1;display:grid;place-items:center}.board-view .on-clock-cell{outline:2px solid #e8b42d;outline-offset:-2px;color:#e8b42d!important}.board-view .mine strong{color:#74f1ac}
     `;document.head.appendChild(css);
-    const side=document.querySelector('.side');const toggle=document.createElement('button');toggle.id='boardToggle';toggle.textContent='SHOW DRAFT BOARD';toggle.onclick=()=>{const open=$('room').classList.toggle('show-board');toggle.textContent=open?'HIDE DRAFT BOARD':'SHOW DRAFT BOARD'};side.appendChild(toggle);
-    const draw=window.REDRAFT_RENDER_ROOM;window.REDRAFT_RENDER_ROOM=function(){draw();const section=side.querySelector('section');let order=section.querySelector('#liveOrder');if(!order){order=document.createElement('div');order.id='liveOrder';section.querySelectorAll('.orderRow').forEach(x=>x.remove());section.appendChild(order)}const label=section.querySelector('.roundLabel');label.textContent=`${window.REDRAFT_SELECTED_YEAR} · Round ${Math.min(rounds(),Math.floor(pick/n)+1)}${window.REDRAFT_SEASON_META?.marketQuality==='results-proxy'?' · PROVISIONAL RANKS':''}`;const round=Math.min(rounds()-1,Math.floor(pick/n));order.innerHTML=Array.from({length:n},(_,i)=>{const t=round%2?n-1-i:i;return `<div class="orderRow ${t===user?'you':''} ${active&&t===teamAt(pick)?'on-clock':''}" onclick="viewTeam(${t});REDRAFT_RENDER_ROOM()"><span>${i+1}</span><span class="helmet"></span><span>${t===user?'Your Team':'Team '+(t+1)}</span></div>`}).join('');};
+    const side=document.querySelector('.side');
+    side.querySelector('section')?.remove();
+    const title=document.createElement('div');title.className='leftTitle';title.innerHTML='DRAFT PICKS <span id="feedCount">0</span>';side.prepend(title);
+    const feed=$('recentPicks');feed.setAttribute('aria-label','Draft picks in chronological order');
+    const queueBox=$('queue');side.appendChild(queueBox);
+    const main=$('room').querySelector('main'),tabs=document.createElement('div');tabs.className='roomTabs';tabs.setAttribute('role','tablist');tabs.setAttribute('aria-label','Draft room view');
+    tabs.innerHTML='<button id="playersTab" role="tab" aria-selected="true" aria-controls="players" class="selected">AVAILABLE PLAYERS</button><button id="boardTab" role="tab" aria-selected="false" aria-controls="board">DRAFT BOARD</button><span id="tabStatus"></span>';
+    $('status').after(tabs);
+    const setTab=board=>{main.classList.toggle('board-view',board);for(const [id,on] of [['playersTab',!board],['boardTab',board]]){$(id).classList.toggle('selected',on);$(id).setAttribute('aria-selected',String(on))}if(board){const current=$('board').querySelector('.on-clock-cell');current?.scrollIntoView({block:'nearest',inline:'nearest'})}};
+    $('playersTab').onclick=()=>setTab(false);$('boardTab').onclick=()=>setTab(true);
+    tabs.onkeydown=e=>{if(!['ArrowLeft','ArrowRight'].includes(e.key))return;e.preventDefault();const board=e.key==='ArrowRight';setTab(board);$(board?'boardTab':'playersTab').focus()};
+    let shown=-1;const draw=window.REDRAFT_RENDER_ROOM;
+    window.REDRAFT_RENDER_ROOM=function(){
+      const follow=feed.scrollHeight-feed.scrollTop-feed.clientHeight<80,oldScroll=feed.scrollTop;
+      draw();
+      $('feedCount').textContent=`${pick}/${n*rounds()}`;
+      if(shown!==pick){feed.innerHTML=picks.length?picks.map((x,i)=>`<button class="feedPick ${x.t===user?'my-pick':''}" data-overall="${i+1}" onclick="viewTeam(${x.t});REDRAFT_RENDER_ROOM()"><span class="feedNumber">${i+1}<small>${Math.floor(i/n)+1}.${String(i%n+1).padStart(2,'0')}</small></span><span><b>${x.p.name}</b><small>${x.p.pos} · ${x.p.team} · ${x.t===user?'Your Team':'Team '+(x.t+1)}</small></span></button>`).join(''):'<div class="feedEmpty">Every pick appears here, in draft order.<br><br>You can click a pick to view that team’s roster.</div>';shown=pick;}
+      feed.scrollTop=follow?feed.scrollHeight:oldScroll;
+      const t=teamAt(pick);$('tabStatus').textContent=!active?'DRAFT COMPLETE':t===user?'YOUR PICK — select a player':`Team ${t+1} is picking`;
+      const selected=+$('rosterTeam').value;document.querySelector('.teamRailSub span').textContent=selected===user?'YOUR ROSTER':'TEAM '+(selected+1)+' ROSTER';
+    };
+
   }
   document.readyState==='loading'?document.addEventListener('DOMContentLoaded',setup):setup();
 })();

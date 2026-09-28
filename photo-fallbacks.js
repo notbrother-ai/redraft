@@ -1,20 +1,18 @@
-// Only checked identities may produce a headshot URL. All other players use initials.
+// Frozen identity mappings only. Never search by name or substitute another person's image.
 (() => {
   const failed=new Set();
-  const key=s=>String(s).toLowerCase().replace(/[^a-z0-9]/g,'');
   window.photo=function(p){
-    const k=key(p.name),record=window.REDRAFT_VERIFIED_PORTRAITS?.[k],year=p.season||window.REDRAFT_SELECTED_YEAR;
-    if(!record||record.position!==p.pos||failed.has(k))return '';
-    // Distinguish historical players who share a name with a later NFL player.
-    if(k==='adrianpeterson'&&(year<2007||p.team!=='MIN'))return '';
-    if(k==='michaelthomas'&&(year<2016||p.team!=='NO'))return '';
-    if(k==='davidjohnson'&&year<2015)return '';
-    if(k==='chrisjohnson'&&year<2008)return '';
-    return `https://a.espncdn.com/i/headshots/nfl/players/full/${record.id}.png`;
+    const record=window.REDRAFT_VERIFIED_PORTRAITS?.[p.portraitId];
+    return record&&!failed.has(record.url)?record.url:'';
   };
-  window.playerPhotoSources=p=>photo(p)?[photo(p)]:[];
+  window.playerPhotoSources=p=>window.photo(p)?[window.photo(p)]:[];
+  window.REDRAFT_PHOTO_FALLBACK=function(p){
+    const label=p.pos==='DST'?p.team:initials(p.name),title=p.pos==='DST'?'Team defense':'Verified portrait unavailable';
+    return `<span class="fallback" title="${title}" aria-label="${title}"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M15 95Q15 60 50 60Q85 60 85 95"/><circle cx="50" cy="33" r="22"/></svg><b>${label}</b></span>`;
+  };
   document.addEventListener('error',e=>{
     const img=e.target;if(!(img instanceof HTMLImageElement)||!img.closest('.photo,.heroPhoto'))return;
-    failed.add(key(img.alt));const span=document.createElement('span');span.className='fallback';span.textContent=initials(img.alt||'Player');span.title='Player portrait unavailable';img.replaceWith(span);
+    failed.add(img.src);
+    img.outerHTML=window.REDRAFT_PHOTO_FALLBACK({name:img.alt||'Player',pos:img.dataset.pos,team:img.dataset.team});
   },true);
 })();

@@ -1,0 +1,5220 @@
+{
+  "checkedAt": "2026-09-28",
+  "sources": [
+    "https://github.com/nflverse/nflverse-data/releases/tag/players",
+    "https://github.com/nflverse/nflverse-data/releases/tag/rosters",
+    "https://github.com/dynastyprocess/data/blob/master/files/db_playerids.csv"
+  ],
+  "uniquePhotos": 1742,
+  "playerSeasonPhotos": 7860,
+  "playerSeasonFallbacks": 836,
+  "seasons": [
+    {
+      "year": 2000,
+      "players": 283,
+      "photos": 114,
+      "fallbacks": 169,
+      "teamGraphics": 24
+    },
+    {
+      "year": 2001,
+      "players": 290,
+      "photos": 136,
+      "fallbacks": 154,
+      "teamGraphics": 31
+    },
+    {
+      "year": 2002,
+      "players": 295,
+      "photos": 170,
+      "fallbacks": 125,
+      "teamGraphics": 32
+    },
+    {
+      "year": 2003,
+      "players": 292,
+      "photos": 202,
+      "fallbacks": 90,
+      "teamGraphics": 32
+    },
+    {
+      "year": 2004,
+      "players": 293,
+      "photos": 229,
+      "fallbacks": 64,
+      "teamGraphics": 32
+    },
+    {
+      "year": 2005,
+      "players": 292,
+      "photos": 261,
+      "fallbacks": 31,
+      "teamGraphics": 32
+    },
+    {
+      "year": 2006,
+      "players": 274,
+      "photos": 247,
+      "fallbacks": 27,
+      "teamGraphics": 32
+    },
+    {
+      "year": 2007,
+      "players": 275,
+      "photos": 260,
+      "fallbacks": 15,
+      "teamGraphics": 32
+    },
+    {
+      "year": 2008,
+      "players": 274,
+      "photos": 270,
+      "fallbacks": 4,
+      "teamGraphics": 32
+    },
+    {
+      "year": 2009,
+      "players": 275,
+      "photos": 272,
+      "fallbacks": 3,
+      "teamGraphics": 32
+    },
+    {
+      "year": 2010,
+      "players": 276,
+      "photos": 271,
+      "fallbacks": 5,
+      "teamGraphics": 32
+    },
+    {
+      "year": 2011,
+      "players": 285,
+      "photos": 279,
+      "fallbacks": 6,
+      "teamGraphics": 28
+    },
+    {
+      "year": 2012,
+      "players": 348,
+      "photos": 339,
+      "fallbacks": 9,
+      "teamGraphics": 32
+    },
+    {
+      "year": 2013,
+      "players": 336,
+      "photos": 319,
+      "fallbacks": 17,
+      "teamGraphics": 32
+    },
+    {
+      "year": 2014,
+      "players": 347,
+      "photos": 316,
+      "fallbacks": 31,
+      "teamGraphics": 32
+    },
+    {
+      "year": 2015,
+      "players": 356,
+      "photos": 324,
+      "fallbacks": 32,
+      "teamGraphics": 31
+    },
+    {
+      "year": 2016,
+      "players": 364,
+      "photos": 339,
+      "fallbacks": 25,
+      "teamGraphics": 33
+    },
+    {
+      "year": 2017,
+      "players": 389,
+      "photos": 368,
+      "fallbacks": 21,
+      "teamGraphics": 32
+    },
+    {
+      "year": 2018,
+      "players": 368,
+      "photos": 366,
+      "fallbacks": 2,
+      "teamGraphics": 32
+    },
+    {
+      "year": 2019,
+      "players": 391,
+      "photos": 389,
+      "fallbacks": 2,
+      "teamGraphics": 32
+    },
+    {
+      "year": 2020,
+      "players": 371,
+      "photos": 370,
+      "fallbacks": 1,
+      "teamGraphics": 32
+    },
+    {
+      "year": 2021,
+      "players": 351,
+      "photos": 350,
+      "fallbacks": 1,
+      "teamGraphics": 32
+    },
+    {
+      "year": 2022,
+      "players": 328,
+      "photos": 327,
+      "fallbacks": 1,
+      "teamGraphics": 31
+    },
+    {
+      "year": 2023,
+      "players": 385,
+      "photos": 385,
+      "fallbacks": 0,
+      "teamGraphics": 32
+    },
+    {
+      "year": 2024,
+      "players": 365,
+      "photos": 364,
+      "fallbacks": 1,
+      "teamGraphics": 32
+    },
+    {
+      "year": 2025,
+      "players": 306,
+      "photos": 306,
+      "fallbacks": 0,
+      "teamGraphics": 31
+    },
+    {
+      "year": 2026,
+      "players": 287,
+      "photos": 287,
+      "fallbacks": 0,
+      "teamGraphics": 31
+    }
+  ],
+  "missing": [
+    {
+      "year": 2000,
+      "name": "Eddie George",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Charlie Garner",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Ricky Watters",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Ed McCaffrey",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Derrick Alexander",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Robert Smith",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Elvis Grbac",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Jimmy Smith",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Lamar Smith",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Stephen Davis",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "James Stewart",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Shaun King",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Corey Dillon",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Wayne Chrebet",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Antonio Freeman",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Keyshawn Johnson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Tyrone Wheatley",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "James Allen",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Steve Beuerlein",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Bill Schroeder",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Kordell Stewart",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Donald Hayes",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Freddie Jones",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Oronde Gadsden",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Larry Centers",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Jeff Graham",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Sean Dawkins",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Frank Sanders",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Charles Johnson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Chad Lewis",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Peter Warrick",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Johnnie Morton",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Frank Wycheck",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Curtis Conway",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "James McKnight",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Travis Prentice",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Jay Fiedler",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Terance Mathis",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Rob Johnson",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Tim Biakabutuka",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Qadry Ismail",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Terrell Fletcher",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Jeff Blake",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Andre Rison",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Jacquez Green",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Albert Connell",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Jerome Pathon",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Sylvester Morris",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Irving Fryar",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Bobby Shaw",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Jeremy McDaniel",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Cade McNown",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Willie Jackson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Kevin Johnson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Ken Dilger",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Dwayne Carswell",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Torrance Small",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Terrence Wilkins",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Doug Flutie",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Aaron Brooks",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Darnell Autry",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Chris Warren",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Leslie Shepherd",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Randy Jordan",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Herman Moore",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "J.J. Stokes",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Jackie Harris",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Ricky Proehl",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Jay Riemersma",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Germane Crowell",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "J.R. Redmond",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Rickey Dudley",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Kevin Lockett",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Chris Sanders",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Wesley Walls",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Tony Banks",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Greg Clark",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Brandon Bennett",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "David Sloan",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Duce Staley",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Napoleon Kaufman",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Bob Christian",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Ryan Leaf",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Dave Moore",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Itula Mili",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Tim Couch",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Jermaine Fazande",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Andrew Glover",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Jeff George",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Rocket Ismail",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Dorsey Levens",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Stanley Pritchett",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Aaron Shea",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Kimble Anders",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "James Jett",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Greg Comella",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Tony Martin",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Justin Watson",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Antowain Smith",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "William Henderson",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Christian Fauria",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Tony McGee",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Reidel Anthony",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Derrick Mayes",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Wane McGarity",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Cecil Martin",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Isaac Byrd",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Johnny McWilliams",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Brian Mitchell",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Richard Huntley",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Keith Poole",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Byron Chamberlain",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Yancey Thigpen",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Pete Mitchell",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Craig Yeast",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Mario Bates",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Chris Hetherington",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Robert Thomas",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Courtney Hawkins",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Robert Holcombe",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Errict Rhett",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Macey Brooks",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Reggie Jones",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Eric Bjornson",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Matthew Hatchette",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Terry Hardy",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Kris Mangum",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Tai Streets",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Jermaine Lewis",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Tyrone Davis",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Jeff Thomason",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Anthony Johnson",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "E.G. Green",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Danny Farmer",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "William Floyd",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Kaseem Sinceno",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Jon Ritchie",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "John Davis",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Fred McCrary",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Erron Kinney",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Chris Fuamatu-Ma'afala",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Brian Kozlowski",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Frank Moreau",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Roland Williams",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Jeremy Brigham",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Rod Rutledge",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "David LaFleur",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Troy Drayton",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Gary Anderson",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Scott Bentley",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Cary Blanchard",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Chris Boniol",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Doug Brien",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Steve Christie",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Brett Conway",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Richie Cunningham",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Greg Davis",
+      "pos": "K",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2000,
+      "name": "Paul Edinger",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Peter Elezovic",
+      "pos": "K",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2000,
+      "name": "Brian Gowins",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Bill Gramatica",
+      "pos": "K",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2000,
+      "name": "Jeff Hall",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "John Hall",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Kris Heppner",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Mike Hollis",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Jaret Holmes",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Norm Johnson",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Todd Peterson",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2000,
+      "name": "Tim Seder",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Jimmy Smith",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Corey Dillon",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Aaron Brooks",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Kevin Johnson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Keyshawn Johnson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Kordell Stewart",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Curtis Conway",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Charlie Garner",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Garrison Hearst",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Antowain Smith",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Jay Fiedler",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Qadry Ismail",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Stephen Davis",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Willie Jackson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Johnnie Morton",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Duce Staley",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Bill Schroeder",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Lamar Smith",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Stacey Mack",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Doug Flutie",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Larry Centers",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Kevin Dyson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Eddie George",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Antonio Freeman",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Chris Weinke",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Jamel White",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Jeff Graham",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "J.J. Stokes",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Tim Couch",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Frank Wycheck",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Maurice Smith",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Rocket Ismail",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Darnay Scott",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Michael Westbrook",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Elvis Grbac",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Oronde Gadsden",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Peter Warrick",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Byron Chamberlain",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "James McKnight",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Wayne Chrebet",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Bob Christian",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Tony Banks",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Jay Riemersma",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "James Stewart",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Ricky Proehl",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Todd Pinkston",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Donald Hayes",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "David Sloan",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Terance Mathis",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Chad Lewis",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Wesley Walls",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Jim Miller",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Lamont Warren",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Frank Sanders",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Richard Huntley",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Ernie Conwell",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Tony Martin",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Alex Van Pelt",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "James Allen",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Trung Canidate",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Terry Allen",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Koren Robinson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "David Terrell",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Chris Fuamatu-Ma'afala",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Freddie Jones",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "MarTay Jenkins",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Jason Brookins",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Derrick Alexander",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Isaac Byrd",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Snoop Minnis",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Dwayne Carswell",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Dez White",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Dave Moore",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Rob Johnson",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Jacquez Green",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Roland Williams",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Amos Zereoue",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Tyrone Wheatley",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Troy Hambrick",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "James Jackson",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Elvis Joseph",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Bobby Shaw",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Ken Dilger",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Greg Comella",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Moe Williams",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Tai Streets",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Jerome Pathon",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Ki-Jana Carter",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Quincy Carter",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Marc Edwards",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Terrence Wilkins",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Ron Dugans",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Jake Reed",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Germane Crowell",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Dorsey Levens",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Ricky Watters",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Brandon Bennett",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Boo Williams",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Karl Williams",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Erron Kinney",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Tywan Mitchell",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "JaJuan Dawson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Doug Chapman",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Freddie Mitchell",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Michael Wiley",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Kevin Lockett",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Troy Edwards",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Jim Kleinsasser",
+      "pos": "RB",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2001,
+      "name": "Tim Biakabutuka",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Cecil Martin",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Terry Jackson",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Larry Foster",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Terrell Fletcher",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Chris Thomas",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Zeron Flemister",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Jed Weaver",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Mike McMahon",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Mikhael Ricks",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Cam Cleeland",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Fred Baxter",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Robert Wilson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Brian Kozlowski",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Larry Parker",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Christian Fauria",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Jackie Harris",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Walter Rasby",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Tony McGee",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Terry Hardy",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Itula Mili",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Mike Lucky",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Jeff Robinson",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Damon Jones",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Justin Swift",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Doug Brien",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Steve Christie",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Brad Daluiso",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Michael Husted",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Eddie Murray",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Todd Peterson",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Pete Stoyanovich",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Mike Hollis",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Brett Conway",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "John Hall",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Wade Richey",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Mike Vanderjagt",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Billy Gramatica",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Owen Pochman",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Jon Hilbert",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Jose Cortez",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Brian Gowins",
+      "pos": "K",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2001,
+      "name": "Jaret Holmes",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Paul Edinger",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Tim Seder",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2001,
+      "name": "Kris Heppner",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Charlie Garner",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Eddie George",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Duce Staley",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Aaron Brooks",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Corey Dillon",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Koren Robinson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Garrison Hearst",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Jimmy Smith",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "James Stewart",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Keyshawn Johnson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Antowain Smith",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Curtis Conway",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Todd Pinkston",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Tai Streets",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Jamel White",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Amos Zereoue",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Ed McCaffrey",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Wayne Chrebet",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Kevin Johnson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Tommy Maddox",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Moe Williams",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Stephen Davis",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Derrius Thompson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Tim Couch",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Peter Warrick",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Lamar Smith",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "William Green",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Jay Fiedler",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "D'Wayne Bates",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Dez White",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "James Allen",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Antonio Freeman",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Bill Schroeder",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Rodney Peete",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Jeff Blake",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Jerome Pathon",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Stacey Mack",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Ricky Proehl",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Marc Boerigter",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Kevin Dyson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Qadry Ismail",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Jim Miller",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Itula Mili",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Bobby Shaw",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Larry Centers",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "James Mungro",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Ernie Conwell",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Chad Lewis",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "James McKnight",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Christian Fauria",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Lamar Gordon",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Ron Dugans",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Johnnie Morton",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Frank Sanders",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Freddie Jones",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Kordell Stewart",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Frank Wycheck",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Doug Jolley",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Shane Matthews",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Jonathan Wells",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Dorsey Levens",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Dee Brown",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Trevor Gaylor",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Mikhael Ricks",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Ken Dilger",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Quincy Carter",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Rob Konrad",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Tyrone Wheatley",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Jake Reed",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Byron Chamberlain",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Mike McMahon",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "J.J. Stokes",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Ron Dixon",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "William Henderson",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Jason McAddley",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Wesley Walls",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Jay Riemersma",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Troy Hambrick",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Chad Hutchinson",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Tony Fisher",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Scotty Anderson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Kevin Lockett",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Pete Mitchell",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Tony McGee",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Bob Christian",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "John Davis",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "John Simon",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Olandis Gary",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Robert Edwards",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Rickey Dudley",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Marc Edwards",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Michael Wiley",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Roland Williams",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Fred McCrary",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Joel Makovicka",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Dwayne Carswell",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Dave Moore",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Josh Norman",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Stanley Pritchett",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Boo Williams",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Dustin Lyman",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Zeron Flemister",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Jeff Thomason",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Cam Cleeland",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Gary Anderson",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Doug Brien",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Steve Christie",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Brad Daluiso",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Michael Husted",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Richie Cunningham",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Pete Stoyanovich",
+      "pos": "K",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2002,
+      "name": "Mike Hollis",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Brett Conway",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "John Hall",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Mike Vanderjagt",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Billy Gramatica",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Owen Pochman",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Jose Cortez",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Paul Edinger",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "James Tuthill",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Jeff Chandler",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Travis Dorsch",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Hayden Epstein",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Danny Boyd",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2002,
+      "name": "Tim Duncan",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Moe Williams",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Aaron Brooks",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Domanick Williams",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Peter Warrick",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Stephen Davis",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Quincy Carter",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Koren Robinson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Tommy Maddox",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Eddie George",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Charlie Garner",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Jimmy Smith",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Duce Staley",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Johnnie Morton",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Bobby Shaw",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Tai Streets",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Troy Hambrick",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Garrison Hearst",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Kevin Johnson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Jeff Blake",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Dez White",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Amos Zereoue",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Freddie Jones",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Jerome Pathon",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Keyshawn Johnson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Jay Fiedler",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Curtis Conway",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Itula Mili",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Onterrio Smith",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Boo Williams",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Jamel White",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Tyrone Wheatley",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Todd Pinkston",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Antowain Smith",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Freddie Mitchell",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Kordell Stewart",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Troy Edwards",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Darnerien McCants",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Erron Kinney",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Jerald Sowell",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Mikhael Ricks",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Doug Flutie",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Ricky Proehl",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Charles Lee",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Trung Canidate",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Bill Schroeder",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "David Terrell",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Jed Weaver",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Corey Dillon",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Tony Fisher",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "James McKnight",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "James Jackson",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Tim Couch",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "William Green",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Tyrone Calico",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Olandis Gary",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Christian Fauria",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Ernie Conwell",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Charles Rogers",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "William Henderson",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Doug Jolley",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Brandon Bennett",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Derrius Thompson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Wayne Chrebet",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Scotty Anderson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Robert Holcombe",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Marc Edwards",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Chad Lewis",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Stacey Mack",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Ken Dilger",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Lamar Gordon",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Wesley Walls",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Frank Wycheck",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Kris Mangum",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Rob Konrad",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Gary Anderson",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Doug Brien",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Steve Christie",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Richie Cunningham",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Todd Peterson",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Brett Conway",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "John Hall",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Wade Richey",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Mike Vanderjagt",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Owen Pochman",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Paul Edinger",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Jeff Chandler",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Hayden Epstein",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Tim Duncan",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Seth Marler",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2003,
+      "name": "Derrick Frost",
+      "pos": "K",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2004,
+      "name": "Domanick Williams",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Corey Dillon",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Aaron Brooks",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Jimmy Smith",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Keyshawn Johnson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Johnnie Morton",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Onterrio Smith",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Amos Zereoue",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Lee Suggs",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "David Terrell",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Antowain Smith",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Todd Pinkston",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Troy Edwards",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Tony Fisher",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Freddie Jones",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Duce Staley",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Curtis Conway",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Jerome Pathon",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Koren Robinson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Ken Dilger",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "William Green",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Jerald Sowell",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Ricky Proehl",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Moe Williams",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Kris Mangum",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Dorsey Levens",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Derrius Thompson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Eddie George",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Dez White",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Tyrone Wheatley",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Boo Williams",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Darius Watts",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Jonathan Wells",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Wayne Chrebet",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Derick Armstrong",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Kevin Johnson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "William Henderson",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Aaron Shea",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Chad Lewis",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Freddie Mitchell",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Doug Jolley",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "J.R. Redmond",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Erron Kinney",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Patrick Pass",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Tai Streets",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Jay Fiedler",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Itula Mili",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Dwayne Carswell",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Shad Meier",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Christian Fauria",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Gary Anderson",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Doug Brien",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Steve Christie",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Todd Peterson",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "John Hall",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Wade Richey",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Mike Vanderjagt",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Owen Pochman",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Jose Cortez",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Paul Edinger",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Jeff Chandler",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Todd France",
+      "pos": "K",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2004,
+      "name": "Ola Kimrin",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2004,
+      "name": "Jay Taylor",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Jimmy Smith",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Domanick Williams",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Corey Dillon",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Keyshawn Johnson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Aaron Brooks",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Stephen Davis",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Erron Kinney",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Tony Fisher",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Antowain Smith",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Jonathan Wells",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Ricky Proehl",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Patrick Pass",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Scottie Vines",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Zachary Hilton",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Mike McMahon",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Koren Robinson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Doug Jolley",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Jerald Sowell",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "William Henderson",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Kris Mangum",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Aaron Shea",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Ernie Conwell",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Ryan Hannam",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Todd Peterson",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "John Hall",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Mike Vanderjagt",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Paul Edinger",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Jeff Chandler",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "David Kimball",
+      "pos": "K",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2005,
+      "name": "Ola Kimrin",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2005,
+      "name": "Paul Ernster",
+      "pos": "K",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2006,
+      "name": "Corey Dillon",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Keyshawn Johnson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Aaron Brooks",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Mike Vanderjagt",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Zach Hilton",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Fred McAfee",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Dave Moore",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Ricky Proehl",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "William Henderson",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Fred McCrary",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Christian Fauria",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Brian Kozlowski",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Ernie Conwell",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Stephen Davis",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Duce Staley",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Itula Mili",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Daimon Shelton",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Kris Mangum",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "John Hall",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Mike Bartrum",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Karl Hankton",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Koren Robinson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Alex Bannister",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Terrence Wilkins",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2006,
+      "name": "Paul Ernster",
+      "pos": "K",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2006,
+      "name": "Michael Koenen",
+      "pos": "K",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2006,
+      "name": "Kurt Smith",
+      "pos": "K",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2007,
+      "name": "Fred McAfee",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2007,
+      "name": "Ricky Proehl",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2007,
+      "name": "Christian Fauria",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2007,
+      "name": "Brian Kozlowski",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2007,
+      "name": "Jeff Robinson",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2007,
+      "name": "Stephen Davis",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2007,
+      "name": "Itula Mili",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2007,
+      "name": "Daimon Shelton",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2007,
+      "name": "Jerald Sowell",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2007,
+      "name": "Mike Bartrum",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2007,
+      "name": "Chris Hetherington",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2007,
+      "name": "Koren Robinson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2007,
+      "name": "Alex Bannister",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2007,
+      "name": "Mike Lewis",
+      "pos": "WR",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2007,
+      "name": "Aaron Barret",
+      "pos": "K",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2008,
+      "name": "Jeff Robinson",
+      "pos": "TE",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2008,
+      "name": "Mike Leach",
+      "pos": "TE",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2008,
+      "name": "Koren Robinson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2008,
+      "name": "Joe Zelenka",
+      "pos": "TE",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2009,
+      "name": "Jeff Robinson",
+      "pos": "TE",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2009,
+      "name": "Mike Leach",
+      "pos": "TE",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2009,
+      "name": "Joe Zelenka",
+      "pos": "TE",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2010,
+      "name": "Mike Leach",
+      "pos": "TE",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2010,
+      "name": "Joe Zelenka",
+      "pos": "TE",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2010,
+      "name": "Brian Jennings",
+      "pos": "TE",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2010,
+      "name": "Justin Snow",
+      "pos": "TE",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2010,
+      "name": "Brett Swenson",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2011,
+      "name": "Clyde Gates",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2011,
+      "name": "Jordan Todman",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2011,
+      "name": "Ryan Mallett",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2011,
+      "name": "Shane Vereen",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2011,
+      "name": "Julius Thomas",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2011,
+      "name": "DeMarco Murray",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2012,
+      "name": "DeMarco Murray",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2012,
+      "name": "Coby Fleener",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2012,
+      "name": "Shane Vereen",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2012,
+      "name": "Rueben Randle",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2012,
+      "name": "Blair Walsh",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2012,
+      "name": "Keshawn Martin",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2012,
+      "name": "Bernard Pierce",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2012,
+      "name": "Shaun Hill",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2012,
+      "name": "Ryan Mallett",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2013,
+      "name": "DeMarco Murray",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2013,
+      "name": "Eddie Lacy",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2013,
+      "name": "Shane Vereen",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2013,
+      "name": "Bernard Pierce",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2013,
+      "name": "Rueben Randle",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2013,
+      "name": "Blair Walsh",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2013,
+      "name": "Aaron Dobson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2013,
+      "name": "Markus Wheaton",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2013,
+      "name": "Coby Fleener",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2013,
+      "name": "Julius Thomas",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2013,
+      "name": "Knile Davis",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2013,
+      "name": "Lance Dunbar",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2013,
+      "name": "Jordan Todman",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2013,
+      "name": "Josh Boyce",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2013,
+      "name": "Havard Rugland",
+      "pos": "K",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2013,
+      "name": "Ryan Mallett",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2013,
+      "name": "Mike James",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Eddie Lacy",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "DeMarco Murray",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Julius Thomas",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Shane Vereen",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Bishop Sankey",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Bernard Pierce",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Rueben Randle",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Andre Williams",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Terrance West",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Markus Wheaton",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Aaron Dobson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Knile Davis",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Lance Dunbar",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Blair Walsh",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Coby Fleener",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Tim Wright",
+      "pos": "TE",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2014,
+      "name": "Andrew Hawkins",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Derek Dimke",
+      "pos": "K",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2014,
+      "name": "Ka'Deem Carey",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Shaun Hill",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Matt Asiata",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Shaun Draughn",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Jordan Todman",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Jared Abbrederis",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Storm Johnson",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Colt Lyerla",
+      "pos": "TE",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2014,
+      "name": "Mike James",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Lorenzo Taliaferro",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "C.J. Fiedorowicz",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Mychal Rivera",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2014,
+      "name": "Ryan Mallett",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Eddie Lacy",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "DeMarco Murray",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Markus Wheaton",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Shane Vereen",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Bishop Sankey",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Knile Davis",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Julius Thomas",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Dorial Green-Beckham",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Andre Williams",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Rueben Randle",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Coby Fleener",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Andrew Franks",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Blair Walsh",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Jeremy Langford",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Terrance West",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Zach Hocker",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Matt Asiata",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Branden Oliver",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Lorenzo Taliaferro",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Lance Dunbar",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Kamar Aiken",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Jared Abbrederis",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Corey Brown",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Crockett Gillmore",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Chris Matthews",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Andrew Hawkins",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Aaron Dobson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Mychal Rivera",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Ka'Deem Carey",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Ryan Mallett",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "C.J. Fiedorowicz",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2015,
+      "name": "Devante Davis",
+      "pos": "WR",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2016,
+      "name": "Eddie Lacy",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "DeMarco Murray",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Jeremy Langford",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Coby Fleener",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Julius Thomas",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Markus Wheaton",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Kamar Aiken",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "C.J. Fiedorowicz",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Terrance West",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Dorial Green-Beckham",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Blair Walsh",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Shane Vereen",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Jared Abbrederis",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Andrew Franks",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Shaun Draughn",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Keith Marshall",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Crockett Gillmore",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Matt Asiata",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Ka'Deem Carey",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Rueben Randle",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Orleans Darkwa",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Christian Hackenberg",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Trevone Boykin",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Daniel Lasco",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2016,
+      "name": "Terrell Watson",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2017,
+      "name": "DeMarco Murray",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2017,
+      "name": "Terrance West",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2017,
+      "name": "Eddie Lacy",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2017,
+      "name": "Julius Thomas",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2017,
+      "name": "C.J. Fiedorowicz",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2017,
+      "name": "Coby Fleener",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2017,
+      "name": "Blair Walsh",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2017,
+      "name": "Shane Vereen",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2017,
+      "name": "Andrew Franks",
+      "pos": "K",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2017,
+      "name": "Branden Oliver",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2017,
+      "name": "Jeremy Langford",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2017,
+      "name": "Carlos Henderson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2017,
+      "name": "Kamar Aiken",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2017,
+      "name": "Orleans Darkwa",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2017,
+      "name": "Lance Dunbar",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2017,
+      "name": "Crockett Gillmore",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2017,
+      "name": "Scott Tolzien",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2017,
+      "name": "Ishmael Zamora",
+      "pos": "WR",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2017,
+      "name": "Christian Hackenberg",
+      "pos": "QB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2017,
+      "name": "Markus Wheaton",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2017,
+      "name": "Bucky Hodges",
+      "pos": "TE",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2018,
+      "name": "DeMarco Murray",
+      "pos": "RB",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2018,
+      "name": "Carlos Henderson",
+      "pos": "WR",
+      "reason": "no verified available image"
+    },
+    {
+      "year": 2019,
+      "name": "Alex Barnes",
+      "pos": "RB",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2019,
+      "name": "James Williams",
+      "pos": "RB",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2020,
+      "name": "Lynn Bowden",
+      "pos": "RB",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2021,
+      "name": "Cordarrelle Patterson",
+      "pos": "WR",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2022,
+      "name": "Ty Montgomery",
+      "pos": "RB",
+      "reason": "identity unresolved"
+    },
+    {
+      "year": 2024,
+      "name": "Taysom Hill",
+      "pos": "QB",
+      "reason": "identity unresolved"
+    }
+  ]
+}

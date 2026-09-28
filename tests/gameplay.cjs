@@ -5,6 +5,7 @@ const server=http.createServer(async(req,res)=>{const u=new URL(req.url,'http://
 (async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const url=process.env.QA_URL||`http://127.0.0.1:${server.address().port}`;const proxyUrl=process.env.QA_URL&&(process.env.HTTPS_PROXY||process.env.HTTP_PROXY);const proxy=proxyUrl?{server:proxyUrl}:undefined;const browser=await chromium.launch({proxy,executablePath:process.env.CHROMIUM_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage','--disable-gpu'],headless:true});const summary=[];
 for(const [year,teams,slot] of [[2003,12,0],[2008,12,11],[2010,10,9],[2017,12,5],[2024,12,11],[2026,12,0]]){
  const page=await browser.newPage({viewport:{width:1440,height:900}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ if(process.env.PHOTO_CHECKS){const checked=JSON.parse(fs.readFileSync(process.env.PHOTO_CHECKS,'utf8')),images=new Map(Object.values(checked).filter(x=>x.url).map(x=>[x.url,x]));await page.route('https://**/*',route=>{const image=images.get(route.request().url());return image?route.fulfill({body:fs.readFileSync(image.path),contentType:image.url.endsWith('.jpg')?'image/jpeg':'image/png'}):route.abort()})}
  await page.goto(`${url}/play.html?year=${year}`);await page.waitForFunction(()=>window.REDRAFT_SEASON_READY);
  await page.locator('#teams').selectOption(String(teams));await page.waitForFunction(()=>window.REDRAFT_SEASON_READY);await page.locator('#slot').selectOption(String(slot));await page.locator('#start').click();
  await page.waitForFunction(()=>REDRAFT_STATE().active&&teamAt(pick)===user);
@@ -15,7 +16,7 @@ for(const [year,teams,slot] of [[2003,12,0],[2008,12,11],[2010,10,9],[2017,12,5]
  await page.evaluate(()=>{window.qaMutations=0;window.qaObserver=new MutationObserver(ms=>qaMutations+=ms.length);qaObserver.observe(document.querySelector('#players'),{childList:true,subtree:true})});await page.waitForTimeout(600);const idle=await page.evaluate(()=>{qaObserver.disconnect();return qaMutations});assert(idle<10,`Idle mutations: ${idle}`);
  const before=await page.evaluate(()=>({id:avail[0].id,count:rosters[user].length}));
  const first=await page.evaluate(()=>REDRAFT_CPU_CHOICE(user).id);await page.locator(`#players .player[data-id="${first}"] .star`).click();assert(await page.evaluate(id=>queue.some(p=>p.id===id),first));
- await page.screenshot({path:path.join(root,`tests/qa-room-${year}.png`),fullPage:true});let userPicks=0;const began=Date.now();
+ await page.screenshot({path:path.join(root,`tests/qa-room-${year}.png`),fullPage:true});await page.locator('#boardTab').click();assert(await page.locator('#board').isVisible());assert(!await page.locator('#players').isVisible());await page.locator('#board .boardTeam').first().click();assert.equal(await page.locator('#rosterTeam').inputValue(),'0');await page.locator('#rosterTeam').selectOption(String(slot));await page.locator('#playersTab').click();assert(await page.locator('#players').isVisible());let userPicks=0;const began=Date.now();
  while(await page.evaluate(()=>REDRAFT_STATE().active)){
    await page.waitForFunction(()=>!REDRAFT_STATE().active||teamAt(pick)===user,{},{timeout:15000});if(!await page.evaluate(()=>REDRAFT_STATE().active))break;
    const choice=await page.evaluate(()=>({id:REDRAFT_CPU_CHOICE(user).id,pick,count:rosters[user].length}));
@@ -24,6 +25,7 @@ for(const [year,teams,slot] of [[2003,12,0],[2008,12,11],[2010,10,9],[2017,12,5]
    assert(result.removed);assert.equal(result.count,choice.count+1);assert(result.recent.includes(result.name));assert.notEqual(result.hero,result.name);userPicks++;
  }
  const audit=await page.evaluate(()=>redraftAudit());assert(audit.ok,JSON.stringify(audit));
+ const feed=await page.evaluate(()=>[...document.querySelectorAll('.feedPick')].map(e=>+e.dataset.overall));assert.deepEqual(feed,Array.from({length:audit.picks},(_,i)=>i+1));
  const order=await page.evaluate(()=>picks.every((p,i)=>p.t===teamAt(i)));assert(order);
  assert(await page.locator('#finish').isVisible());assert(!await page.locator('#room').isVisible());assert.equal(userPicks,15);assert.deepEqual(errors,[]);
  await page.screenshot({path:path.join(root,`tests/qa-${year}.png`),fullPage:true});summary.push({year,teams,slot:slot+1,userPicks,picks:audit.picks,pool:audit.master,seconds:Math.round((Date.now()-began)/1000),idleMutations:idle,errors});console.log('PASS',JSON.stringify(summary.at(-1)));await page.close();
