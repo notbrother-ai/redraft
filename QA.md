@@ -25,7 +25,7 @@ Real Chromium tests exercised actual user DRAFT buttons and the shipping CPU sch
 
 Checks: all 27 years load through the season selector and API; latest year selection wins; ALL/QB/RB/WR/TE/K/DST filters and search; queue; drafted-player removal; immediate roster updates; Recent Picks; Best Available; snake order; full team roster lengths; required starters; no duplicate IDs; player-pool conservation; visible completion screen; zero uncaught JavaScript errors. The player list produced zero DOM mutations during each idle sampling window.
 
-The actual CPU selection implementation additionally passed 243 seeded full drafts (39,690 picks) across 27 seasons, three roster configurations and three seeds. Covers 10/12 teams, two QBs, and no K/DST. Syntax and snapshot checks pass. `tests/qa-results.json` contains browser results.
+The actual CPU selection implementation additionally passed 243 seeded full drafts (39,690 picks) across 27 seasons, three roster configurations and three seeds. Covers 10/12 teams, two QBs, and no K/DST. Portrait tests also cover the incorrect Jordy Nelson mapping, unknown supplied IDs, position mismatches and the two Adrian Peterson identities. Syntax and snapshot checks pass. `tests/qa-results.json` contains browser results.
 
 ## Remaining data limitations — not a full historical-accuracy sign-off
 
@@ -45,3 +45,7 @@ The actual CPU selection implementation additionally passed 243 seeded full draf
 - `npm run test:browser`
 
 For a preinstalled Chromium, set `CHROMIUM_PATH`. To check a preview, set `QA_URL`. Browser tests start a local server automatically; no manual state manipulation substitutes for user picks. Source snapshots are committed under `data/seasons/`; upstream data preparation is documented in `scripts/prepare-season-snapshots.py`.
+
+## Preview verification boundary
+
+The branch preview builds successfully on Vercel. Its authentication redirects anonymous visitors to Vercel sign-in. The connected Vercel account could not access this project or issue a share link, so deployed browser gameplay could not be independently verified; the complete gameplay evidence above is from the local Chromium build of the same source. No authentication settings were weakened.

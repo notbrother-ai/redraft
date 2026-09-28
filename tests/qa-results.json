@@ -1,6 +1,6 @@
 {
-  "testedAt": "2026-09-28T02:13:20.730Z",
-  "url": "http://127.0.0.1:33671",
+  "testedAt": "2026-09-28T02:19:49.417Z",
+  "url": "http://127.0.0.1:35781",
   "seasons": [
     {
       "year": 2003,
@@ -42,7 +42,7 @@
       "userPicks": 15,
       "picks": 180,
       "pool": 421,
-      "seconds": 28,
+      "seconds": 27,
       "idleMutations": 0,
       "errors": []
     },
@@ -53,7 +53,7 @@
       "userPicks": 15,
       "picks": 180,
       "pool": 397,
-      "seconds": 26,
+      "seconds": 25,
       "idleMutations": 0,
       "errors": []
     },
@@ -64,7 +64,7 @@
       "userPicks": 15,
       "picks": 180,
       "pool": 318,
-      "seconds": 26,
+      "seconds": 27,
       "idleMutations": 0,
       "errors": []
     }
