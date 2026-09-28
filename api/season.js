@@ -2,6 +2,17 @@
 module.exports=async function handler(req,res){
  const year=Number(req.query.year),scoring=String(req.query.scoring||'standard').toLowerCase(),teams=Math.min(16,Math.max(8,Number(req.query.teams)||12));
  if(!Number.isInteger(year)||year<2000||year>2026)return res.status(400).json({error:'year must be 2000-2026'});
+ // Versioned snapshots make the tested player pool reproducible and avoid long upstream chains.
+ try {
+  const snapshot=require(`../data/seasons/${year}.json`);
+  const players=snapshot.players.map(p=>{let adp=p.standardAdp??p.adp;
+   if(scoring==='ppr')adp=p.pprAdp??adp;
+   if(scoring==='half')adp=p.pprAdp&&p.standardAdp?(p.pprAdp+p.standardAdp)/2:adp;
+   return {...p,adp:Math.round(adp*100)/100};
+  }).sort((a,b)=>a.adp-b.adp);const counts={};players.forEach((p,i)=>{p.id=i;p.pr=counts[p.pos]=(counts[p.pos]||0)+1});
+  res.setHeader('Cache-Control','public, s-maxage=86400');
+  return res.status(200).json({...snapshot,players,teams,scoring});
+ }catch(e){if(e.code!=='MODULE_NOT_FOUND')throw e}
  const pos=x=>{x=String(x||'').toUpperCase().replace(/[^A-Z/]/g,'');if(x==='PK')return'K';if(['DEF','DF','D/ST','DST'].includes(x))return'DST';if(x==='FB')return'RB';return x};
  const arr=x=>Array.isArray(x)?x:x?[x]:[];
  const clean=s=>String(s||'').replace(/<[^>]*>/g,' ').replace(/&nbsp;/gi,' ').replace(/&amp;/gi,'&').replace(/&#39;|&apos;/gi,"'").replace(/&quot;/gi,'"').replace(/\s+/g,' ').trim();

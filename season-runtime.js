@@ -1,10 +1,23 @@
-// Loads any selected 2000-2026 historical market into the shared draft engine.
-(()=>{
- const q=new URLSearchParams(location.search),initial=+(q.get('year')||2017);
- window.REDRAFT_SELECTED_YEAR=initial;window.REDRAFT_SEASON_READY=false;window.REDRAFT_SEASON_ERROR=null;window.REDRAFT_SEASON_CACHE=window.REDRAFT_SEASON_CACHE||{};
- const scoring=()=>{const raw=String(document.getElementById('scoring')?.value||'standard').toLowerCase();return raw.includes('ppr')&&!raw.includes('half')?'ppr':'standard'};
- function apply(y,j){if(!Array.isArray(j.players)||j.players.length<40)throw Error('insufficient player pool');P.splice(0,P.length,...j.players.map((x,i)=>({...x,id:i,season:y})));window.REDRAFT_REGISTER_SEASON?.(y,P,{source:j.source,status:'playable'});window.REDRAFT_SELECTED_YEAR=y;window.REDRAFT_SEASON_READY=true;window.REDRAFT_SEASON_ERROR=null;document.title=`RE:DRAFT — ${y}`;document.dispatchEvent(new CustomEvent('redraft-season-ready',{detail:{year:y,count:P.length,source:j.source}}));return j}
- window.REDRAFT_LOAD_SEASON=async function(y=window.REDRAFT_SELECTED_YEAR,opts={}){y=+y;if(y<2000||y>2026)throw Error('season out of range');window.REDRAFT_SELECTED_YEAR=y;window.REDRAFT_SEASON_READY=false;window.REDRAFT_SEASON_ERROR=null;document.dispatchEvent(new CustomEvent('redraft-season-loading',{detail:{year:y}}));const teams=opts.teams||document.getElementById('teams')?.value||12,fmt=opts.scoring||scoring(),key=`${y}-${teams}-${fmt}`;try{if(window.REDRAFT_SEASON_CACHE[key])return apply(y,window.REDRAFT_SEASON_CACHE[key]);const r=await fetch(`/api/season?year=${y}&teams=${encodeURIComponent(teams)}&scoring=${fmt}`);let j;try{j=await r.json()}catch{throw Error(`season service returned ${r.status}`)}if(!r.ok)throw Error(j.detail||j.error||'season load failed');window.REDRAFT_SEASON_CACHE[key]=j;return apply(y,j)}catch(err){window.REDRAFT_SEASON_ERROR=err;window.REDRAFT_SEASON_READY=false;document.dispatchEvent(new CustomEvent('redraft-season-error',{detail:{year:y,error:String(err.message||err)}}));throw err}};
- window.REDRAFT_SET_YEAR=async function(y){window.REDRAFT_SELECTED_YEAR=+y;history.replaceState(null,'',`${location.pathname}?year=${y}`);return window.REDRAFT_LOAD_SEASON(+y)};
- window.REDRAFT_SEASON_PROMISE=window.REDRAFT_LOAD_SEASON(initial).catch(()=>null);
+// Latest selection wins. A failed load never leaves another year's pool playable.
+(() => {
+  const q=new URLSearchParams(location.search),requested=Number(q.get('year')||2017),initial=Number.isInteger(requested)&&requested>=2000&&requested<=2026?requested:2017;
+  let sequence=0,controller;const cache=new Map();
+  window.REDRAFT_SELECTED_YEAR=initial;window.REDRAFT_SEASON_READY=false;window.REDRAFT_SEASON_ERROR=null;
+  const scoring=()=>{const s=String(document.getElementById('scoring')?.value||'PPR');return s==='PPR'?'ppr':s==='Half PPR'?'half':'standard'};
+  window.REDRAFT_LOAD_SEASON=async function(year=window.REDRAFT_SELECTED_YEAR,opts={}){
+    const y=Number(year);if(!Number.isInteger(y)||y<2000||y>2026)throw Error('Season must be 2000–2026');
+    const request=++sequence;controller?.abort();controller=new AbortController();window.REDRAFT_SELECTED_YEAR=y;window.REDRAFT_SEASON_READY=false;window.REDRAFT_SEASON_ERROR=null;
+    document.dispatchEvent(new CustomEvent('redraft-season-loading',{detail:{year:y}}));
+    const fmt=opts.scoring||scoring(),teams=opts.teams||document.getElementById('teams')?.value||12,key=`${y}-${teams}-${fmt}`;
+    try{
+      let j=cache.get(key);if(!j){const r=await fetch(`/api/season?year=${y}&teams=${teams}&scoring=${fmt}`,{signal:controller.signal});j=await r.json();if(!r.ok)throw Error(j.error||`Season service returned ${r.status}`);cache.set(key,j)}
+      if(request!==sequence)return null;
+      if(j.year!==y||!Array.isArray(j.players)||j.players.length<40)throw Error('Season data failed validation');
+      P.splice(0,P.length,...j.players.map((p,i)=>({...p,id:i,season:y})));
+      window.REDRAFT_SEASON_META=j;window.REDRAFT_REGISTER_SEASON?.(y,P,{source:j.source,status:'playable'});window.REDRAFT_SEASON_READY=true;document.title=`RE:DRAFT — ${y}`;
+      document.dispatchEvent(new CustomEvent('redraft-season-ready',{detail:{year:y,count:P.length,source:j.source}}));return j;
+    }catch(e){if(request!==sequence||e.name==='AbortError')return null;window.REDRAFT_SEASON_ERROR=e;P.splice(0);document.dispatchEvent(new CustomEvent('redraft-season-error',{detail:{year:y,error:e.message}}));throw e}
+  };
+  window.REDRAFT_SET_YEAR=async y=>{history.replaceState(null,'',`${location.pathname}?year=${y}`);return window.REDRAFT_LOAD_SEASON(y)};
+  window.REDRAFT_SEASON_PROMISE=window.REDRAFT_LOAD_SEASON(initial).catch(()=>null);
 })();

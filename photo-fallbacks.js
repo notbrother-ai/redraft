@@ -1,15 +1,19 @@
-// Multi-season player image layer — resolves ESPN IDs when possible and always provides a visual fallback.
-(()=>{
- if(typeof P==='undefined'||typeof photo!=='function')return;
- const legacy={'David Johnson':'2508176',"Le'Veon Bell":'15825','Antonio Brown':'13934','Julio Jones':'13982','LeSean McCoy':'12514','Odell Beckham Jr.':'16733','Devonta Freeman':'16944','Melvin Gordon':'2576434','Mike Evans':'16737','A.J. Green':'13983','Jordy Nelson':'12563','Ezekiel Elliott':'3051392','Michael Thomas':'2976316','Rob Gronkowski':'13229','Tom Brady':'2330','Christian McCaffrey':'3117251','DeAndre Hopkins':'15795','Drew Brees':'2580','Travis Kelce':'15847','Aaron Rodgers':'8439','Russell Wilson':'14881','Derrick Henry':'3043078','Cooper Kupp':'2977187','Adrian Peterson':'10452'};Object.assign(photoIds,legacy);
- const alias={JAC:'jax',JAX:'jax',WSH:'wsh',WAS:'wsh',SD:'lac',STL:'lar',OAK:'lv',LA:'lar'};
- const logo=p=>`https://a.espncdn.com/i/teamlogos/nfl/500/${alias[String(p.team||'').toUpperCase()]||String(p.team||'nfl').toLowerCase()}.png`;
- const cache=new Map();
- function idOf(p){return p.espnId||p.espn_id||photoIds[p.name]||cache.get(p.name)||null}
- window.playerPhotoSources=function(p){let id=idOf(p),out=[];if(id){out.push(`https://a.espncdn.com/i/headshots/nfl/players/full/${id}.png`,`https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/${id}.png&w=350&h=254`)}out.push(logo(p));return [...new Set(out)]};
- window.photo=p=>playerPhotoSources(p)[0];
- async function resolve(p,img){if(idOf(p)||cache.has(p.name))return false;cache.set(p.name,null);try{let r=await fetch(`https://site.api.espn.com/apis/common/v3/search?query=${encodeURIComponent(p.name)}&limit=8&type=player&sport=football&league=nfl`);if(!r.ok)return false;let j=await r.json(),items=j.items||j.results||[];let hit=items.find(x=>String(x.displayName||x.name||'').toLowerCase()===p.name.toLowerCase())||items[0];let id=hit?.id||hit?.uid?.split(':').pop();if(id){cache.set(p.name,String(id));p.espnId=String(id);if(img){img.dataset.fallbackIndex='0';img.src=playerPhotoSources(p)[0]}return true}}catch(e){}return false}
- function identify(img){let direct=img.dataset.player;if(direct)return P.find(x=>x.name===direct);let row=img.closest('.player'),name=row?.querySelector('.nm')?.textContent?.trim();if(name)return P.find(x=>x.name===name);let hero=img.closest('.heroPlayer'),hn=hero?.querySelector('.heroName')?.textContent?.trim();return hn?P.find(x=>x.name.toUpperCase()===hn.toUpperCase()):null}
- document.addEventListener('error',async e=>{let img=e.target;if(!(img instanceof HTMLImageElement))return;let p=identify(img);if(!p)return;if(await resolve(p,img))return;let sources=playerPhotoSources(p),idx=+(img.dataset.fallbackIndex||0)+1;if(idx<sources.length){img.dataset.fallbackIndex=idx;img.src=sources[idx];return}img.onerror=null;img.src=logo(p);img.style.objectFit='contain';img.style.padding='5px'},true);
- document.addEventListener('redraft-season-ready',()=>{P.slice(0,80).forEach(p=>{if(!idOf(p))resolve(p,null)})});
+// Never substitute another person. Only identity-verified NFL headshots are displayed.
+(() => {
+  const verified=new Map(),failed=new Set(),pending=new Set();
+  const names={'David Johnson':'2508176',"Le'Veon Bell":'15825','Antonio Brown':'13934','Julio Jones':'13982','LeSean McCoy':'12514','Odell Beckham Jr.':'16733','Devonta Freeman':'16944','Melvin Gordon':'2576434','Mike Evans':'16737','A.J. Green':'13983','Jordy Nelson':'12563','Ezekiel Elliott':'3051392','Michael Thomas':'2976316','Rob Gronkowski':'13229','Tom Brady':'2330','Christian McCaffrey':'3117251','DeAndre Hopkins':'15795','Drew Brees':'2580','Travis Kelce':'15847','Aaron Rodgers':'8439','Russell Wilson':'14881','Derrick Henry':'3043078','Cooper Kupp':'2977187','Adrian Peterson':'10452','Chris Johnson':'11258'};
+  const key=s=>String(s).toLowerCase().replace(/[^a-z0-9]/g,'');
+  const known=new Map(Object.entries(names).map(([name,id])=>[key(name),id]));
+  window.photo=p=>failed.has(key(p.name))?'':verified.get(key(p.name))||'';
+  window.playerPhotoSources=p=>photo(p)?[photo(p)]:[];
+  const fallback=img=>{const span=document.createElement('span');span.className='fallback';span.textContent=initials(img.alt||'Player');span.title='Player portrait unavailable';img.replaceWith(span)};
+  document.addEventListener('error',e=>{const img=e.target;if(!(img instanceof HTMLImageElement)||!img.closest('.photo,.heroPhoto'))return;failed.add(key(img.alt));fallback(img)},true);
+  async function verify(p){
+    const k=key(p.name),id=p.espnId||p.espn_id||known.get(k);if(!id||pending.has(k)||verified.has(k))return;pending.add(k);
+    try{const response=await fetch(`https://site.api.espn.com/apis/common/v3/sports/football/nfl/athletes/${encodeURIComponent(id)}`,{signal:AbortSignal.timeout(5000)});if(!response.ok)return;const j=await response.json(),a=j.athlete||j;
+      if(key(a.displayName||a.fullName)!==k||a.position?.abbreviation!==p.pos)return;
+      verified.set(k,`https://a.espncdn.com/i/headshots/nfl/players/full/${id}.png`);
+    }catch{} // Initials remain visible on missing data, CORS, timeout or identity mismatch.
+  }
+  document.addEventListener('redraft-season-ready',async()=>{const year=window.REDRAFT_SELECTED_YEAR,work=P.filter(p=>known.has(key(p.name))||p.espnId||p.espn_id);let i=0;await Promise.all(Array.from({length:3},async()=>{while(i<work.length)await verify(work[i++])}));if(year===window.REDRAFT_SELECTED_YEAR)window.REDRAFT_RENDER_ROOM?.()});
 })();

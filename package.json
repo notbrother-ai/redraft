@@ -1,0 +1,11 @@
+{
+  "name": "redraft",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "node tests/cpu.cjs",
+    "test:browser": "node tests/gameplay.cjs",
+    "build": "node scripts/check.cjs"
+  },
+  "devDependencies": {"playwright": "1.62.1"}
+}

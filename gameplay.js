@@ -1,11 +1,30 @@
-// RE:DRAFT CPU draft engine — market-aware, roster-aware, era-agnostic.
-(()=>{
- const count=(t,pos)=>rosters[t].filter(p=>p.pos===pos).length,round=()=>Math.floor(pick/n)+1;
- const cfg=pos=>window.REDRAFT_ROSTER?(+window.REDRAFT_ROSTER[pos]||0):({QB:1,RB:2,WR:2,TE:1,FLEX:1,K:1,DST:1,BENCH:6}[pos]||0),rounds=()=>window.REDRAFT_ROUNDS||15;
- const maxAt=pos=>window.REDRAFT_MAX_NEED?window.REDRAFT_MAX_NEED(pos):({QB:2,RB:7,WR:7,TE:3,K:1,DST:1}[pos]||6);
- function flexNeed(t){return Math.max(0,cfg('RB')+cfg('WR')+cfg('TE')+cfg('FLEX')-(count(t,'RB')+count(t,'WR')+count(t,'TE')))}
- function missing(t){let m=[];['QB','RB','WR','TE','K','DST'].forEach(pos=>{for(let i=count(t,pos);i<cfg(pos);i++)m.push(pos)});for(let i=0;i<flexNeed(t);i++)m.push('FLEX');return m}
- function replacement(pos){let a=avail.filter(p=>p.pos===pos).sort((a,b)=>a.adp-b.adp);return a.length>1?Math.max(0,Math.min(20,a[Math.min(5,a.length-1)].adp-a[0].adp)):0}
- function needScore(t,p,r){let have=count(t,p.pos),total=rounds(),starter=cfg(p.pos),score=0;if(have<starter)score-=8;if(['RB','WR','TE'].includes(p.pos)&&flexNeed(t)>0)score-=3;if((p.pos==='RB'||p.pos==='WR')&&r<=Math.ceil(total*.55)&&have<2)score-=3;if(p.pos==='QB'&&have>=1)score+=r<Math.ceil(total*.72)?18:5;if(p.pos==='TE'&&have>=1)score+=r<Math.ceil(total*.62)?13:4;if((p.pos==='K'||p.pos==='DST')&&r<total-2)score+=45;if(have>=maxAt(p.pos))score+=999;return score}
- window.cpu=function(t){let r=round(),overall=pick+1,total=rounds(),remain=total-rosters[t].length,miss=missing(t),forced=remain<=miss.length;let candidates=avail.filter(p=>count(t,p.pos)<maxAt(p.pos));if(forced)candidates=candidates.filter(p=>miss.includes(p.pos)||(miss.includes('FLEX')&&['RB','WR','TE'].includes(p.pos)));if(!candidates.length)candidates=avail.slice();let pool=candidates.slice().sort((a,b)=>a.adp-b.adp).slice(0,Math.min(candidates.length,r<=4?36:r<=9?60:90));let scored=pool.map(p=>{let delta=p.adp-overall;let market=Math.abs(delta)*.72;if(delta>12)market+=(delta-12)*.7;let reach=delta>25?(delta-25)*1.3:0;let value=delta<0?Math.max(-7,delta*.22):0;let need=needScore(t,p,r);let scarcity=-Math.min(5,replacement(p.pos)*.18);let finish=0;if(forced&&(miss.includes(p.pos)||(miss.includes('FLEX')&&['RB','WR','TE'].includes(p.pos))))finish-=80;if(r>=total-1&&miss.includes('K')&&p.pos==='K')finish-=55;if(r>=total-1&&miss.includes('DST')&&p.pos==='DST')finish-=55;let personality=((t*31+p.id*11)%17-8)*.22;let noise=(Math.random()-.5)*(r<=3?2.5:r<=8?5:8);return{p,s:market+reach+value+need+scarcity+finish+personality+noise}}).sort((a,b)=>a.s-b.s);take(scored[0]?.p||pool[0]||avail[0],t)};
+// CPU choices use the selected season's market, remaining starter needs and bench capacity.
+(() => {
+  const positions=['QB','RB','WR','TE','K','DST'];
+  window.REDRAFT_CPU_CHOICE=function(t,rng=Math.random){
+    const cfg=window.REDRAFT_ROSTER,roster=rosters[t],counts=Object.fromEntries(positions.map(pos=>[pos,roster.filter(p=>p.pos===pos).length]));
+    const total=window.REDRAFT_ROUNDS||15,remaining=total-roster.length,round=Math.floor(pick/n)+1;
+    const missing=Object.fromEntries(positions.map(pos=>[pos,Math.max(0,cfg[pos]-counts[pos])]));
+    const flexFilled=['RB','WR','TE'].reduce((s,pos)=>s+Math.max(0,counts[pos]-cfg[pos]),0),flexMissing=Math.max(0,cfg.FLEX-flexFilled);
+    const needed=Object.values(missing).reduce((a,b)=>a+b,0)+flexMissing;
+    const fills=p=>missing[p.pos]>0||(flexMissing>0&&['RB','WR','TE'].includes(p.pos));
+    let pool=avail.filter(p=>counts[p.pos]<window.REDRAFT_MAX_NEED(p.pos));
+    // Reserve the last available player at a position for teams still needing that starter.
+    const supply=Object.fromEntries(positions.map(pos=>[pos,avail.filter(p=>p.pos===pos).length]));
+    const demand=Object.fromEntries(positions.map(pos=>[pos,rosters.reduce((s,r)=>s+Math.max(0,cfg[pos]-r.filter(p=>p.pos===pos).length),0)]));
+    pool=pool.filter(p=>missing[p.pos]>0||supply[p.pos]>demand[p.pos]);
+    if(remaining<=needed)pool=pool.filter(fills);
+    if(!pool.length)pool=avail.filter(p=>fills(p)&&counts[p.pos]<window.REDRAFT_MAX_NEED(p.pos));
+    const scores=pool.map(p=>{
+      let score=p.adp;const have=counts[p.pos];
+      if(missing[p.pos]>0)score-=Math.min(18,round*1.5);
+      if(['RB','WR'].includes(p.pos)&&have<2)score-=5;
+      if(p.pos==='QB'&&have>=cfg.QB)score+=round<total*.7?90:25;
+      if(p.pos==='TE'&&have>=cfg.TE)score+=round<total*.7?65:20;
+      if(p.pos==='K'||p.pos==='DST')score+=round<total-2?180:0;
+      score+=(rng()-.5)*(round<4?6:18);
+      return{p,score};
+    });scores.sort((a,b)=>a.score-b.score);return scores[0]?.p;
+  };
+  window.cpu=t=>take(window.REDRAFT_CPU_CHOICE(t),t);
 })();
