@@ -36,6 +36,17 @@ The actual CPU selection implementation additionally passed 324 seeded full draf
 - Photos match stable GSIS identities through season roster/name/position/team and MFL crosswalks. Checked every published URL by downloading and decoding it, rejected shared generic NFL silhouettes and blank image responses, and decoded all 1,742 published images in Chromium. Browser replay uses the downloaded CDN bytes, with separate network checks; it is not a claim that this environment's browser reached every external CDN directly.
 - Browser checks cover visible hero/row photos, lazy-loaded rows, image failure fallback, board tabs and every chronological feed number. Complete browser drafts were also repeated with the real audited image bytes routed into the browser.
 
+## Website completion pass — October 1, 2026
+
+- Automatic browser-local saving after every pick and queue change. Save & Exit returns to the lobby; Resume Draft restores the season, scoring, team count, slot, roster configuration, pick order and queue. No account or cross-device sync is implied. Saves are scoped to this website address and replace the previous draft when a new draft begins.
+- Saved drafts use canonical season players, validate snake order and duplicate IDs, and reject mismatched pool signatures rather than restoring against changed data. Corrupt saves show a recovery message; storage failures do not prevent gameplay. An active tab pauses if another tab changes the shared save.
+- Completed drafts remain reviewable after refresh. The navy/green/gold results screen includes team selection tables, ADP value score (suppressed for proxy seasons), supported historical reveals, every team's roster, full board review and CSV export in chronological pick order.
+- Focused Chromium session test passed: custom 4-round/12-team Half PPR draft; queued players and exact pick prefix preserved; save/exit; resume from a different lobby year; reload during CPU turn; final 48 picks; completed reload; all-team board navigation; 48-row CSV; incompatible/corrupt saves; storage-denied browser; cross-tab conflict.
+- Full six-season gameplay suite repeated with completion roster/board navigation. The 324-draft CPU suite and portrait identity checks remain passing. Desktop only: mobile layout and installable app support are the next separate phase.
+- Website features are ready for preview review; public hosted gameplay still needs verification once Vercel project access is available. No production release or merge to main was authorized.
+
+Run `npm run test:session` with an installed Playwright Chromium or `CHROMIUM_PATH` to reproduce the interruption/recovery tests.
+
 ## Remaining data limitations — not a full historical-accuracy sign-off
 
 - **2000–2005 still use the inherited results-based ranking proxy. They are playable, but are NOT verified preseason ADP.** Lobby, player rows, draft profile and completion label this limitation. Draft-day grades are suppressed for those years.

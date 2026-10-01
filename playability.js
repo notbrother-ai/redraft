@@ -8,6 +8,7 @@
     renderRoster();renderBoard();
     $('queue').textContent=queue.length?queue.map(p=>p.name).join(' · '):'No queued players';
     window.REDRAFT_RENDER_ROOM?.();
+    document.dispatchEvent(new CustomEvent('redraft-state-change'));
   };
   window.renderBoard=function(){
     const cells=Array.from({length:n},(_,t)=>`<div class="pick boardTeam" onclick="viewTeam(${t});REDRAFT_RENDER_ROOM()"><b>${t===user?'YOUR TEAM':'TEAM '+(t+1)}</b></div>`);
@@ -46,8 +47,21 @@
     $('rosterTeam').innerHTML=rosters.map((_,t)=>`<option value="${t}">${t===user?'MY ROSTER':'TEAM '+(t+1)}</option>`).join('');$('rosterTeam').value=user;$('rosterTeam').onchange=()=>{renderRoster();window.REDRAFT_RENDER_ROOM?.()};
     render();advance();
   };
+  window.REDRAFT_PAUSE=function(){stop();active=false;};
+  // Restore only canonical players resolved against the selected season by draft-session.js.
+  window.REDRAFT_RESTORE=function(saved){
+    stop();n=saved.teams;user=saved.user;pick=saved.picks.length;
+    window.REDRAFT_ROSTER={...saved.config};window.REDRAFT_ROUNDS=Object.values(saved.config).reduce((a,b)=>a+b,0);
+    const byId=new Map(P.map(p=>[p.id,{...p}])),used=new Set();rosters=Array.from({length:n},()=>[]);
+    picks=saved.picks.map(x=>{const p=byId.get(x.id);used.add(x.id);rosters[x.t].push(p);return{p,t:x.t}});
+    avail=[...byId.values()].filter(p=>!used.has(p.id));queue=saved.queue.map(id=>byId.get(id));active=pick<n*rounds();
+    document.body.classList.remove('rd-complete','rd-review');document.body.classList.add('rd-live');$('setup').style.display='none';$('finish').style.display='none';$('room').style.display='grid';
+    $('rosterTeam').innerHTML=rosters.map((_,t)=>`<option value="${t}">${t===user?'MY ROSTER':'TEAM '+(t+1)}</option>`).join('');$('rosterTeam').value=user;
+    $('rosterTeam').onchange=()=>{renderRoster();window.REDRAFT_RENDER_ROOM?.()};
+    render();if(active)advance();else finish();
+  };
   const originalFinish=window.finish;
-  window.finish=function(){stop();active=false;originalFinish();document.body.classList.add('rd-complete');if(window.REDRAFT_SEASON_META?.marketQuality==='results-proxy')$('report').innerHTML=$('report').innerHTML.replace('Average historical ADP','Average provisional rank')+'<p>Preseason ADP is unverified for this season. Rankings use the inherited results-based proxy; no draft-day grade is shown.</p>';$('finish').querySelector('h2').textContent=`${window.REDRAFT_SELECTED_YEAR} Draft Complete`};
+  window.finish=function(){stop();active=false;originalFinish();document.body.classList.add('rd-complete');if(window.REDRAFT_SEASON_META?.marketQuality==='results-proxy')$('report').innerHTML=$('report').innerHTML.replace('Average historical ADP','Average provisional rank')+'<p>Preseason ADP is unverified for this season. Rankings use the inherited results-based proxy; no draft-day grade is shown.</p>';$('finish').querySelector('h2').textContent=`${window.REDRAFT_SELECTED_YEAR} Draft Complete`;document.dispatchEvent(new CustomEvent('redraft-complete'))};
   function setup(){
     $('start').onclick=window.start;
     const rail=$('teamRail');if(rail){const selector=$('rosterTeam');rail.querySelector('.teamRailTitle').textContent='TEAM ROSTERS';rail.querySelector('.teamRailSub').before(selector);}
@@ -87,7 +101,7 @@
       $('feedCount').textContent=`${pick}/${n*rounds()}`;
       if(shown!==pick){feed.innerHTML=picks.length?picks.map((x,i)=>`<button class="feedPick ${x.t===user?'my-pick':''}" data-overall="${i+1}" onclick="viewTeam(${x.t});REDRAFT_RENDER_ROOM()"><span class="feedNumber">${i+1}<small>${Math.floor(i/n)+1}.${String(i%n+1).padStart(2,'0')}</small></span><span><b>${x.p.name}</b><small>${x.p.pos} · ${x.p.team} · ${x.t===user?'Your Team':'Team '+(x.t+1)}</small></span></button>`).join(''):'<div class="feedEmpty">Every pick appears here, in draft order.<br><br>You can click a pick to view that team’s roster.</div>';shown=pick;}
       feed.scrollTop=follow?feed.scrollHeight:oldScroll;
-      const t=teamAt(pick);$('tabStatus').textContent=!active?'DRAFT COMPLETE':t===user?'YOUR PICK — select a player':`Team ${t+1} is picking`;
+      const t=teamAt(pick);$('tabStatus').textContent=!active?(pick>=n*rounds()?'DRAFT COMPLETE':'DRAFT PAUSED'):t===user?'YOUR PICK — select a player':`Team ${t+1} is picking`;
       const selected=+$('rosterTeam').value;document.querySelector('.teamRailSub span').textContent=selected===user?'YOUR ROSTER':'TEAM '+(selected+1)+' ROSTER';
     };
 

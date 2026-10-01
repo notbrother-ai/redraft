@@ -5,7 +5,8 @@
   "scripts": {
     "test": "node tests/cpu.cjs && node tests/cpu-quality.cjs && node tests/portraits.cjs",
     "test:browser": "node tests/gameplay.cjs",
-    "build": "node scripts/check.cjs"
+    "build": "node scripts/check.cjs",
+    "test:session": "node tests/session.cjs"
   },
   "devDependencies": {
     "playwright": "1.62.1"

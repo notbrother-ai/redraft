@@ -28,6 +28,8 @@ for(const [year,teams,slot] of [[2003,12,0],[2008,12,11],[2010,10,9],[2017,12,5]
  const feed=await page.evaluate(()=>[...document.querySelectorAll('.feedPick')].map(e=>+e.dataset.overall));assert.deepEqual(feed,Array.from({length:audit.picks},(_,i)=>i+1));
  const order=await page.evaluate(()=>picks.every((p,i)=>p.t===teamAt(i)));assert(order);
  assert(await page.locator('#finish').isVisible());assert(!await page.locator('#room').isVisible());assert.equal(userPicks,15);assert.deepEqual(errors,[]);
+ await page.locator('#resultsTeam').selectOption(String((slot+1)%teams));assert.equal(await page.locator('#resultsRoster tr').count(),15);
+ await page.locator('#reviewBoard').click();assert(await page.locator('#board').isVisible());assert(!await page.locator('#finish').isVisible());await page.locator('#backToResults').click();assert(await page.locator('#finish').isVisible());
  await page.screenshot({path:path.join(root,`tests/qa-${year}.png`),fullPage:true});summary.push({year,teams,slot:slot+1,userPicks,picks:audit.picks,pool:audit.master,seconds:Math.round((Date.now()-began)/1000),idleMutations:idle,errors});console.log('PASS',JSON.stringify(summary.at(-1)));await page.close();
 }
 // Loading every year through the UI and overlapping selections must preserve the last requested year.
